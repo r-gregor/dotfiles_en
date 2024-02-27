@@ -1,0 +1,14 @@
+new -s START
+rename-window W1
+send-keys "clear" Enter
+split-window -v
+send-keys "clear" Enter
+split-window -h
+send-keys "clear" Enter
+select-pane -t 0
+
+new-window -t START:1
+rename-window W2
+send-keys "clear" Enter
+
+select-window -t W1

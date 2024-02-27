@@ -1,0 +1,13 @@
+screen -t w0 bash
+screen -t w1 bash
+screen -t w2 bash
+screen -t w3 bash
+
+select w0
+split
+focus
+select w1
+split -v
+focus
+select w2
+focus

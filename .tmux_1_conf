@@ -1,0 +1,21 @@
+bind -n 'M-Left' select-pane -L
+bind -n 'M-Down' select-pane -D
+bind -n 'M-Up' select-pane -U
+bind -n 'M-Right' select-pane -R
+
+new -s START
+rename-window W1
+send-keys "${HOME}/.local/bin/zze" Enter
+split-window -h
+split-window
+select-pane -t 0
+
+new-window -t START:1
+rename-window W2
+split-window -h
+
+new-window -t START:2
+rename-window w3
+
+select-window -t W1
+

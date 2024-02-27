@@ -1,0 +1,30 @@
+source $HOME/.vimrc
+
+" 20240116
+" custom color settings for TAB and SPACE chars
+:hi Whitespacechar ctermfg=DarkGray
+:hi Tabspacechar   ctermfg=DarkGray
+:match Whitespacechar / \+$/
+:match Tabspacechar /\t/
+
+" 20240205
+" from Plug 'fxn/vim-monochrome'
+" let g:monochrome_italic_comments = 1
+colorscheme monochrome
+
+" hi Normal guibg='#000000'
+" hi Normal guibg='#131313'
+" hi Normal guibg='#222222'
+" hi Normal guibg='#1f1f1f'
+" hi Normal guibg='#1e1e1e'
+hi Normal guibg='#191919'
+
+" ---
+:hi Whitespacechar ctermfg=DarkGray
+:hi Tabspacechar   ctermfg=DarkGray
+:match Whitespacechar / \+$/
+:match Tabspacechar /\t/
+
+hi CursorColumn cterm=NONE ctermbg=232 guifg='NONE' guibg='#3F4354'
+hi CursorLine cterm=NONE ctermbg=232 guifg='NONE' guibg='#3F4354'
+

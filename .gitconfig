@@ -1,0 +1,30 @@
+# This is Git's per-user configuration file.
+# [user]
+# Please adapt and uncomment the following lines:
+#	name = U-JHL\gregor.redelonghi
+#	email = gregor.redelonghi@PC-GREDELONGHI.jhl.si
+#
+#
+
+[user]
+	name = r-gregor
+	email = gredelonghi@gmail.com
+[branch]
+	autosetuprebase = always
+[pull]
+	rebase = true
+[core]
+	editor = vim
+	# pager = cat
+	pager = less -+F -+X
+[push]
+	default = simple
+[color]
+	ui = auto
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[mergetool]
+	prompt = false
+[credential]
+	helper = cache

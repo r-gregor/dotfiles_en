@@ -1,0 +1,59 @@
+!!!!!!!!!!!!!!!!!!!
+!! RXVT settings !!
+!!!!!!!!!!!!!!!!!!!
+# Rxvt.termName: rxvt-cygwin-native
+Rxvt.termName: rxvt-256color
+Rxvt.geometry:180x60+150+30
+Rxvt.background:#000000
+# Rxvt.background:#242424 (last)
+# Rxvt.background:#373737
+Rxvt.inheritPixmap:False
+# Rxvt.foreground:#999999
+# Rxvt.foreground:#C0C0C0 (last)
+### Rxvt.foreground:#D8D8D8
+Rxvt.foreground:#c0c0c0
+Rxvt.transparent:false
+Rxvt.colorBDmode:on
+Rxvt.colorBD:white
+Rxvt.colorUL: yellow
+Rxvt.multibyte_cursor:Yes
+Rxvt.scrollBar:True
+Rxvt.scrollBar_right:True
+Rxvt.scrollBar_floating: False
+Rxvt.scrollstyle: next
+Rxvt.saveLines:8000
+Rxvt.cursorColor:#cc6666
+*ttyModes: erase ^?
+
+
+*font:Terminus-16
+*boldFont:Terminus-15
+
+Rxvt.inputMethod:fcitx
+Rxvt.preeditType:OverTheSpot
+
+*color0: #000000
+# *color1: #a80000
+*color1:#ff6666
+*color2: #00a800
+# *color3: #a8a800
+*color3: Red
+!!*color4: #56a5ec 
+*color5: #a800a8
+*color6: #00a8a8
+*color7: #a8a8a8
+
+*color8: #000054
+*color9: #ff0054
+*color10: #00ff54
+*color11: #ffff54
+!!*color12: #0000ff
+*color13: #ff00ff
+*color14: #00ffff
+*color15: #ffffff
+
+! DarkBlue + Blue
+!!*color4:  #204a87
+!!*color12: #3465a4
+*color4:  #1e90ff
+*color12: #81a3d0

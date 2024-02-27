@@ -1,0 +1,8 @@
+﻿" setup to show tabs - added 20170116:
+" method 1: --------------------------
+" set list!
+" set listchars=tab:>-
+ 
+" method 2: --------------------------
+set listchars=tab:\|\ 
+set list
