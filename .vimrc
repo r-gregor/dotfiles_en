@@ -1,4 +1,4 @@
-" EN: LAST CHANGE 20240206
+" EN: LAST CHANGE 20240226
 "
 " ------------ DEFAULT SETTINGS -------------------------------
 set nocompatible                    " This must be first, because it changes other options as a side effect.
