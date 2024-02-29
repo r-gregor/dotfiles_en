@@ -333,10 +333,10 @@ vnoremap <Space>j :m'>+1<CR>gv=gv
 vnoremap <Space>k :m'<-2<CR>gv=gv
 "
 " ------------- CMD-PROMT SYMBOL REPLACEMENT -----------------
-nnoremap ,4 :s/^\s*/$> /<CR><CR>
-vnoremap ,4 :s/^\s*/$> /<CR><CR>
-nnoremap <Space>4 :s/^\$ /$> /<CR><CR>
-vnoremap <Space>4 :s/^\$ /$> /<CR><CR>
+nnoremap ,4 :s/^\s*/$> /<CR> :nohl <CR><CR>
+vnoremap ,4 :s/^\s*/$> /<CR> :nohl <CR><CR>
+nnoremap <Space>4 :s/^\$ /$> /<CR> :nohl <CR><CR>
+vnoremap <Space>4 :s/^\$ /$> /<CR> :nohl <CR><CR>
 
 " ------------- NEERDTREE ------------------------------------
 nnoremap <leader>n :NERDTree<CR>
