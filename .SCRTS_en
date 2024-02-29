@@ -1,9 +1,0 @@
-export UNM_SCRTS="gregor.redelonghi@energetika.si"
-export PSSWD_SCRTS='/En/gr.05/'
-export SMTP_SCRTS='mail.jhl.si'
-export PORT_SCRTS=587
-export FROM_SCRTS="gregor.redelonghi@energetika.si"
-# ---
-# BASH
-export TO_SCRTS='gredelonghi@gmail.com'
-

@@ -21,9 +21,9 @@ $
 
 # Command Line History (newest to oldest):
 :wq
-|2,0,1709194553,,"wq"
+|2,0,1709195613,,"wq"
 :q
-|2,0,1709194298,,"q"
+|2,0,1709195247,,"q"
 :w
 |2,0,1709133356,,"w"
 :%s/\[\d\+]//gc
@@ -396,34 +396,72 @@ $
 |4,78,9,0,1686743909,"~/digits.py"
 'O  209  3  ~/majstaf/coding/C_Cpp_en/c_en_testing/cn053_BrthReminder_20220416/src/BrthReminder_v11.c
 |4,79,209,3,1671447582,"~/majstaf/coding/C_Cpp_en/c_en_testing/cn053_BrthReminder_20220416/src/BrthReminder_v11.c"
-'0  10  0  ~/majstaf_en/majbin_en/get_ndiffs
-|4,48,10,0,1709194553,"~/majstaf_en/majbin_en/get_ndiffs"
-'1  10  25  ~/majstaf_en/majbin_en/get_ndiffs
-|4,49,10,25,1709194426,"~/majstaf_en/majbin_en/get_ndiffs"
-'2  10  18  ~/majstaf_en/majbin_en/get_ndiffs
-|4,50,10,18,1709194412,"~/majstaf_en/majbin_en/get_ndiffs"
-'3  10  18  ~/majstaf_en/majbin_en/get_ndiffs
-|4,51,10,18,1709194412,"~/majstaf_en/majbin_en/get_ndiffs"
+'0  10  82  ~/majstaf_en/majbin_en/get_ndiffs
+|4,48,10,82,1709195613,"~/majstaf_en/majbin_en/get_ndiffs"
+'1  2  0  ~/majstaf_en/engit/dotfiles_en/.gitignore
+|4,49,2,0,1709195306,"~/majstaf_en/engit/dotfiles_en/.gitignore"
+'2  1  0  ~/majstaf_en/engit/dotfiles_en/.gitignore
+|4,50,1,0,1709195247,"~/majstaf_en/engit/dotfiles_en/.gitignore"
+'3  1  0  ~/majstaf_en/engit/dotfiles_en/.gitignore
+|4,51,1,0,1709195247,"~/majstaf_en/engit/dotfiles_en/.gitignore"
 '4  10  0  ~/majstaf_en/majbin_en/get_ndiffs
-|4,52,10,0,1709194298,"~/majstaf_en/majbin_en/get_ndiffs"
-'5  10  0  ~/majstaf_en/majbin_en/get_ndiffs
-|4,53,10,0,1709194298,"~/majstaf_en/majbin_en/get_ndiffs"
-'6  10  0  ~/majstaf_en/majbin_en/get_ndiffs
-|4,54,10,0,1709194298,"~/majstaf_en/majbin_en/get_ndiffs"
-'7  10  0  ~/majstaf_en/majbin_en/get_ndiffs
-|4,55,10,0,1709194298,"~/majstaf_en/majbin_en/get_ndiffs"
-'8  22  0  ~/majstaf_en/majbin_en/get_ndiffs
-|4,56,22,0,1709194239,"~/majstaf_en/majbin_en/get_ndiffs"
-'9  22  0  ~/majstaf_en/majbin_en/get_ndiffs
-|4,57,22,0,1709194239,"~/majstaf_en/majbin_en/get_ndiffs"
+|4,52,10,0,1709194553,"~/majstaf_en/majbin_en/get_ndiffs"
+'5  10  25  ~/majstaf_en/majbin_en/get_ndiffs
+|4,53,10,25,1709194426,"~/majstaf_en/majbin_en/get_ndiffs"
+'6  10  25  ~/majstaf_en/majbin_en/get_ndiffs
+|4,54,10,25,1709194426,"~/majstaf_en/majbin_en/get_ndiffs"
+'7  10  18  ~/majstaf_en/majbin_en/get_ndiffs
+|4,55,10,18,1709194412,"~/majstaf_en/majbin_en/get_ndiffs"
+'8  10  18  ~/majstaf_en/majbin_en/get_ndiffs
+|4,56,10,18,1709194412,"~/majstaf_en/majbin_en/get_ndiffs"
+'9  10  18  ~/majstaf_en/majbin_en/get_ndiffs
+|4,57,10,18,1709194412,"~/majstaf_en/majbin_en/get_ndiffs"
 
 # Jumplist (newest first):
+-'  10  82  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,10,82,1709195613,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  2  0  ~/majstaf_en/engit/dotfiles_en/.gitignore
+|4,39,2,0,1709195306,"~/majstaf_en/engit/dotfiles_en/.gitignore"
+-'  2  0  ~/majstaf_en/engit/dotfiles_en/.gitignore
+|4,39,2,0,1709195306,"~/majstaf_en/engit/dotfiles_en/.gitignore"
+-'  1  0  ~/majstaf_en/engit/dotfiles_en/.gitignore
+|4,39,1,0,1709195302,"~/majstaf_en/engit/dotfiles_en/.gitignore"
+-'  1  0  ~/majstaf_en/engit/dotfiles_en/.gitignore
+|4,39,1,0,1709195302,"~/majstaf_en/engit/dotfiles_en/.gitignore"
+-'  1  0  ~/majstaf_en/engit/dotfiles_en/.gitignore
+|4,39,1,0,1709195247,"~/majstaf_en/engit/dotfiles_en/.gitignore"
+-'  1  0  ~/majstaf_en/engit/dotfiles_en/.gitignore
+|4,39,1,0,1709195247,"~/majstaf_en/engit/dotfiles_en/.gitignore"
+-'  10  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,10,0,1709194553,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  10  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,10,0,1709194553,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  10  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,10,0,1709194553,"~/majstaf_en/majbin_en/get_ndiffs"
 -'  10  0  ~/majstaf_en/majbin_en/get_ndiffs
 |4,39,10,0,1709194553,"~/majstaf_en/majbin_en/get_ndiffs"
 -'  10  25  ~/majstaf_en/majbin_en/get_ndiffs
 |4,39,10,25,1709194426,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  10  25  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,10,25,1709194426,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  10  25  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,10,25,1709194426,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  10  25  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,10,25,1709194426,"~/majstaf_en/majbin_en/get_ndiffs"
 -'  10  18  ~/majstaf_en/majbin_en/get_ndiffs
 |4,39,10,18,1709194412,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  10  18  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,10,18,1709194412,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  10  18  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,10,18,1709194412,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  10  18  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,10,18,1709194412,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  10  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,10,0,1709194298,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  10  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,10,0,1709194298,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  10  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,10,0,1709194298,"~/majstaf_en/majbin_en/get_ndiffs"
 -'  10  0  ~/majstaf_en/majbin_en/get_ndiffs
 |4,39,10,0,1709194298,"~/majstaf_en/majbin_en/get_ndiffs"
 -'  22  0  ~/majstaf_en/majbin_en/get_ndiffs
@@ -435,9 +473,53 @@ $
 -'  22  0  ~/majstaf_en/majbin_en/get_ndiffs
 |4,39,22,0,1709194260,"~/majstaf_en/majbin_en/get_ndiffs"
 -'  22  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,22,0,1709194260,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  22  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,22,0,1709194260,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  22  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,22,0,1709194260,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  22  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,22,0,1709194260,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  22  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,22,0,1709194260,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  22  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,22,0,1709194260,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  22  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,22,0,1709194260,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  22  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,22,0,1709194260,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  22  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,22,0,1709194260,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  22  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,22,0,1709194260,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  22  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,22,0,1709194260,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  22  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,22,0,1709194260,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  22  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,22,0,1709194260,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  22  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,22,0,1709194239,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  22  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,22,0,1709194239,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  22  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,22,0,1709194239,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  22  0  ~/majstaf_en/majbin_en/get_ndiffs
 |4,39,22,0,1709194239,"~/majstaf_en/majbin_en/get_ndiffs"
 -'  10  0  ~/majstaf_en/majbin_en/get_ndiffs
 |4,39,10,0,1709194227,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  10  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,10,0,1709194227,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  10  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,10,0,1709194227,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  10  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,10,0,1709194227,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  10  28  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,10,28,1709194210,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  10  28  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,10,28,1709194210,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  10  28  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,10,28,1709194210,"~/majstaf_en/majbin_en/get_ndiffs"
 -'  10  28  ~/majstaf_en/majbin_en/get_ndiffs
 |4,39,10,28,1709194210,"~/majstaf_en/majbin_en/get_ndiffs"
 -'  6  0  ~/majstaf_en/majbin_en/get_ndiffs
@@ -452,6 +534,50 @@ $
 |4,39,6,0,1709194188,"~/majstaf_en/majbin_en/get_ndiffs"
 -'  6  0  ~/majstaf_en/majbin_en/get_ndiffs
 |4,39,6,0,1709194188,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  6  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,6,0,1709194188,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  6  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,6,0,1709194188,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  6  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,6,0,1709194188,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  6  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,6,0,1709194188,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  6  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,6,0,1709194188,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  6  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,6,0,1709194188,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  6  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,6,0,1709194188,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  6  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,6,0,1709194188,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  6  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,6,0,1709194188,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  6  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,6,0,1709194188,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  6  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,6,0,1709194188,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  6  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,6,0,1709194188,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  6  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,6,0,1709194188,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  6  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,6,0,1709194188,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  6  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,6,0,1709194188,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  6  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,6,0,1709194188,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  6  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,6,0,1709194188,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  6  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,6,0,1709194188,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  6  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,6,0,1709194188,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  6  17  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,6,17,1709194049,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  6  17  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,6,17,1709194049,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  6  17  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,6,17,1709194049,"~/majstaf_en/majbin_en/get_ndiffs"
 -'  6  17  ~/majstaf_en/majbin_en/get_ndiffs
 |4,39,6,17,1709194049,"~/majstaf_en/majbin_en/get_ndiffs"
 -'  5  0  ~/majstaf_en/majbin_en/get_ndiffs
@@ -468,164 +594,38 @@ $
 |4,39,5,0,1709194005,"~/majstaf_en/majbin_en/get_ndiffs"
 -'  5  0  ~/majstaf_en/majbin_en/get_ndiffs
 |4,39,5,0,1709194005,"~/majstaf_en/majbin_en/get_ndiffs"
--'  16  9  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,16,9,1709193975,"~/majstaf_en/majbin_en/get_ndiffs"
--'  16  9  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,16,9,1709193975,"~/majstaf_en/majbin_en/get_ndiffs"
--'  16  9  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,16,9,1709193975,"~/majstaf_en/majbin_en/get_ndiffs"
--'  16  9  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,16,9,1709193975,"~/majstaf_en/majbin_en/get_ndiffs"
--'  16  9  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,16,9,1709193975,"~/majstaf_en/majbin_en/get_ndiffs"
--'  16  9  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,16,9,1709193975,"~/majstaf_en/majbin_en/get_ndiffs"
--'  16  9  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,16,9,1709193975,"~/majstaf_en/majbin_en/get_ndiffs"
--'  17  11  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,17,11,1709193972,"~/majstaf_en/majbin_en/get_ndiffs"
--'  17  11  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,17,11,1709193972,"~/majstaf_en/majbin_en/get_ndiffs"
--'  17  11  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,17,11,1709193972,"~/majstaf_en/majbin_en/get_ndiffs"
--'  17  11  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,17,11,1709193972,"~/majstaf_en/majbin_en/get_ndiffs"
--'  17  11  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,17,11,1709193972,"~/majstaf_en/majbin_en/get_ndiffs"
--'  17  11  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,17,11,1709193972,"~/majstaf_en/majbin_en/get_ndiffs"
--'  17  11  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,17,11,1709193972,"~/majstaf_en/majbin_en/get_ndiffs"
--'  33  0  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,33,0,1709193900,"~/majstaf_en/majbin_en/get_ndiffs"
--'  33  0  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,33,0,1709193900,"~/majstaf_en/majbin_en/get_ndiffs"
--'  33  0  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,33,0,1709193900,"~/majstaf_en/majbin_en/get_ndiffs"
--'  33  0  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,33,0,1709193900,"~/majstaf_en/majbin_en/get_ndiffs"
--'  33  0  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,33,0,1709193900,"~/majstaf_en/majbin_en/get_ndiffs"
--'  22  0  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,22,0,1709193900,"~/majstaf_en/majbin_en/get_ndiffs"
--'  33  0  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,33,0,1709193900,"~/majstaf_en/majbin_en/get_ndiffs"
--'  22  0  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,22,0,1709193900,"~/majstaf_en/majbin_en/get_ndiffs"
--'  33  0  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,33,0,1709193900,"~/majstaf_en/majbin_en/get_ndiffs"
--'  33  0  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,33,0,1709193875,"~/majstaf_en/majbin_en/get_ndiffs"
--'  27  49  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,27,49,1709193845,"~/majstaf_en/majbin_en/get_ndiffs"
--'  27  49  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,27,49,1709193845,"~/majstaf_en/majbin_en/get_ndiffs"
--'  27  49  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,27,49,1709193845,"~/majstaf_en/majbin_en/get_ndiffs"
--'  27  49  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,27,49,1709193845,"~/majstaf_en/majbin_en/get_ndiffs"
--'  27  49  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,27,49,1709193845,"~/majstaf_en/majbin_en/get_ndiffs"
--'  27  49  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,27,49,1709193845,"~/majstaf_en/majbin_en/get_ndiffs"
--'  16  49  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,16,49,1709193845,"~/majstaf_en/majbin_en/get_ndiffs"
--'  27  49  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,27,49,1709193845,"~/majstaf_en/majbin_en/get_ndiffs"
--'  27  49  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,27,49,1709193845,"~/majstaf_en/majbin_en/get_ndiffs"
--'  17  0  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,17,0,1709193769,"~/majstaf_en/majbin_en/get_ndiffs"
--'  4  43  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,4,43,1709193738,"~/majstaf_en/majbin_en/get_ndiffs"
--'  15  43  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,15,43,1709193738,"~/majstaf_en/majbin_en/get_ndiffs"
--'  4  43  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,4,43,1709193738,"~/majstaf_en/majbin_en/get_ndiffs"
--'  15  43  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,15,43,1709193738,"~/majstaf_en/majbin_en/get_ndiffs"
--'  4  43  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,4,43,1709193738,"~/majstaf_en/majbin_en/get_ndiffs"
--'  15  43  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,15,43,1709193738,"~/majstaf_en/majbin_en/get_ndiffs"
--'  4  43  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,4,43,1709193738,"~/majstaf_en/majbin_en/get_ndiffs"
--'  15  43  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,15,43,1709193738,"~/majstaf_en/majbin_en/get_ndiffs"
--'  4  43  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,4,43,1709193738,"~/majstaf_en/majbin_en/get_ndiffs"
--'  15  43  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,15,43,1709193738,"~/majstaf_en/majbin_en/get_ndiffs"
--'  4  43  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,4,43,1709193738,"~/majstaf_en/majbin_en/get_ndiffs"
--'  15  43  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,15,43,1709193738,"~/majstaf_en/majbin_en/get_ndiffs"
--'  4  43  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,4,43,1709193738,"~/majstaf_en/majbin_en/get_ndiffs"
--'  15  43  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,15,43,1709193738,"~/majstaf_en/majbin_en/get_ndiffs"
--'  15  43  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,15,43,1709193738,"~/majstaf_en/majbin_en/get_ndiffs"
--'  4  4  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,4,4,1709193730,"~/majstaf_en/majbin_en/get_ndiffs"
--'  4  4  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,4,4,1709193730,"~/majstaf_en/majbin_en/get_ndiffs"
--'  14  1  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,14,1,1709193700,"~/majstaf_en/majbin_en/get_ndiffs"
--'  25  1  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,25,1,1709193700,"~/majstaf_en/majbin_en/get_ndiffs"
--'  14  1  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,14,1,1709193700,"~/majstaf_en/majbin_en/get_ndiffs"
--'  25  1  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,25,1,1709193700,"~/majstaf_en/majbin_en/get_ndiffs"
--'  14  1  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,14,1,1709193700,"~/majstaf_en/majbin_en/get_ndiffs"
--'  25  1  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,25,1,1709193700,"~/majstaf_en/majbin_en/get_ndiffs"
--'  14  1  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,14,1,1709193700,"~/majstaf_en/majbin_en/get_ndiffs"
--'  25  1  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,25,1,1709193700,"~/majstaf_en/majbin_en/get_ndiffs"
--'  14  1  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,14,1,1709193700,"~/majstaf_en/majbin_en/get_ndiffs"
--'  25  1  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,25,1,1709193700,"~/majstaf_en/majbin_en/get_ndiffs"
--'  14  1  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,14,1,1709193700,"~/majstaf_en/majbin_en/get_ndiffs"
--'  25  1  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,25,1,1709193700,"~/majstaf_en/majbin_en/get_ndiffs"
--'  14  1  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,14,1,1709193700,"~/majstaf_en/majbin_en/get_ndiffs"
--'  25  1  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,25,1,1709193700,"~/majstaf_en/majbin_en/get_ndiffs"
--'  25  1  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,25,1,1709193700,"~/majstaf_en/majbin_en/get_ndiffs"
--'  12  14  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,12,14,1709193666,"~/majstaf_en/majbin_en/get_ndiffs"
--'  23  14  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,23,14,1709193666,"~/majstaf_en/majbin_en/get_ndiffs"
--'  12  14  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,12,14,1709193666,"~/majstaf_en/majbin_en/get_ndiffs"
--'  23  14  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,23,14,1709193666,"~/majstaf_en/majbin_en/get_ndiffs"
--'  12  14  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,12,14,1709193666,"~/majstaf_en/majbin_en/get_ndiffs"
--'  23  14  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,23,14,1709193666,"~/majstaf_en/majbin_en/get_ndiffs"
--'  12  14  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,12,14,1709193666,"~/majstaf_en/majbin_en/get_ndiffs"
--'  23  14  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,23,14,1709193666,"~/majstaf_en/majbin_en/get_ndiffs"
--'  12  14  ~/majstaf_en/majbin_en/get_ndiffs
-|4,39,12,14,1709193666,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  5  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,5,0,1709194005,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  5  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,5,0,1709194005,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  5  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,5,0,1709194005,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  5  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,5,0,1709194005,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  5  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,5,0,1709194005,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  5  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,5,0,1709194005,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  5  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,5,0,1709194005,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  5  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,5,0,1709194005,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  5  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,5,0,1709194005,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  5  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,5,0,1709194005,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  5  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,5,0,1709194005,"~/majstaf_en/majbin_en/get_ndiffs"
+-'  5  0  ~/majstaf_en/majbin_en/get_ndiffs
+|4,39,5,0,1709194005,"~/majstaf_en/majbin_en/get_ndiffs"
 
 # History of marks within files (newest to oldest):
 
 > ~/majstaf_en/majbin_en/get_ndiffs
-	*	1709194552	0
-	"	10	0
-	^	10	19
-	.	10	25
+	*	1709195612	0
+	"	10	82
+	^	10	83
+	.	10	82
 	+	19	29
 	+	4	0
 	+	2	21
@@ -712,7 +712,11 @@ $
 	+	6	11
 	+	4	0
 	+	6	17
-	+	10	25
+	+	10	82
+
+> ~/majstaf_en/engit/dotfiles_en/.gitignore
+	*	1709195306	0
+	"	2	0
 
 > /c/Users/gregor.redelonghi/majstaf_en/drpbx-en/ODPRTO/_C_and_Cpp/c_understand-the-difference-between-text-mode-and-binary-mode-with-file-streams_20240228.txt
 	*	1709133387	0
@@ -1477,10 +1481,6 @@ $
 	+	19	4
 	+	146	0
 	+	1	24
-
-> ~/majstaf_en/engit/dotfiles_en/.gitignore
-	*	1709020018	0
-	"	1	0
 
 > /c/Users/gregor.redelonghi/majstaf_en/BRISI/20240226_time_null_test/time_null_test.c
 	*	1708953655	0
