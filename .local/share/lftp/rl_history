@@ -1,0 +1,116 @@
+ 1661235644
+exit
+ 1661235779
+lftp r-gregor.slohosting.com:z7m17s11@free.slohosting.com
+ 1661235781
+ls
+ 1661235805
+ls index*html
+ 1661235811
+rm index*html
+ 1661235825
+rm index.html  index-black.html 
+ 1661235857
+mput /c/Users/gregor.redelonghi/majstaf/r.gregor.en/start.en/index*html
+ 1661235860
+ls
+ 1661235864
+cd dnevno/
+ 1661235873
+rm dnevno.html dnevno-black.html 
+ 1661235888
+mput /c/Users/gregor.redelonghi/majstaf/r.gregor.en/start.en/dnevno/dnevno*html
+ 1661235890
+ls
+ 1661235894
+exit
+ 1663315956
+lftp -e "set ftp:passive-mode 0" r-gregor.slohosting.com:z7m17s11@free.slohosting.com
+ 1663315958
+ls
+ 1663315966
+!ls
+ 1663315982
+put index.html index-black.html 
+ 1663316021
+cd dnevno/
+ 1663316039
+put dnevno/dnevno.html dnevno/dnevno-black.html 
+ 1663316074
+cd ../kolo/
+ 1663316082
+put kolo/kolo.html 
+ 1663316169
+exit
+ 1681375806
+lftp -e "set ftp:passive-mode 0" r-gregor.slohosting.com:z7m17s11@free.slohosting.com
+ 1681375809
+dir
+ 1681375812
+cd dnevno/
+ 1681375814
+dir
+ 1681375820
+!ls
+ 1681375825
+exit
+ 1681375859
+lftp -e "set ftp:passive-mode 0" r-gregor.slohosting.com:z7m17s11@free.slohosting.com
+ 1681375860
+dir
+ 1681375863
+cd dnevno/
+ 1681375865
+dir
+ 1681375871
+mput dnevno*
+ 1681375876
+dir
+ 1681375884
+edit dnevno-black.html 
+ 1681375891
+exit
+ 1681375899
+lftp -e "set ftp:passive-mode 0" b22_15819044:z7m17s11@ftp.byethost22.com
+ 1681375900
+dir
+ 1681375910
+exit
+ 1681375917
+lftp -e "set ftp:passive-mode 0" gregorr:zala00@ftp.volja.net
+ 1681375919
+dir
+ 1681375923
+exit
+ 1683788292
+lftp -e "set ftp:passive-mode 0" r-gregor.slohosting.com:z7m17s11@free.slohosting.com
+ 1683788294
+dir
+ 1683788297
+cd dnevno/
+ 1683788299
+dir
+ 1683788310
+put dnevno.html 
+ 1683788318
+put dnevno-black.html 
+ 1683788321
+exit
+ 1695108440
+lftp -e "set ftp:passive-mode 0" gregorr:zala00@ftp.volja.net
+ 1695108443
+ls
+ 1695108452
+exit
+ 1695108457
+lftp -e "set ftp:passive-mode 0" r-gregor.slohosting.com:z7m17s11@free.slohosting.com
+ 1695108459
+ls
+ 1695108463
+cd dnevno/
+ 1695108464
+ls
+ 1695108498
+mput /c/Users/gregor.redelonghi/majstaf/r.gregor.en/start.en/dnevno/dnevno*
+ 1695108504
+exit

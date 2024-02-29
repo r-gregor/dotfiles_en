@@ -1,0 +1,173 @@
+filename: c_case-to-use-pointers-to-point-to-a-function-while-programming_20230505.txt
+https://cstdspace.quora.com/In-what-case-would-you-ever-want-to-use-pointers-to-point-to-a-function-while-programming-in-C-5?__nsrc__=4&__snid3__=52767025735
+
+
+In what case would you ever want to use pointers to point to a function while programming in C?
+
+Several reasons: callback routines, loading functions from shared libraries, implementing state machines, etc.
+
+Callback routines
+
+You pass a function pointer as an argument to another function, such that it can be called from that function. Everybody’s already mentioned the qsort routine, here’s a similar example:
+
+Suppose we have a simple bubble sort routine operating on int arrays (using a bubble sort because it’s short, not because it’s quick):
+
+	/** 
+	 * Sorts integer arrays in ascending order; 
+	 * assumes the presence of a swap function 
+	 */ 
+	void bubble( int *arr, size_t size ) 
+	{ 
+	  for ( size_t i = 0; i < size-1; i++ ) 
+		for ( size_t j = i+1; j < size; j++ ) 
+		  if ( arr[j] < arr[i] ) 
+			swap( &arr[i], &arr[j] ); 
+	} 
+
+This works, but what if you wanted to sort the array in descending order, or asciibetical order, or some other ordering? You could hack the sorting function with a bunch of conditionals, or you could pass a pointer to the comparison function as an argument:
+
+	/** 
+	 * Sorts integer arrays in order according	
+	 * to the function cmp points to. 
+	 */ 
+	void bubble( int *arr, size_t size,  
+	  int (*cmp)(const int, const int)) 
+	{ 
+	  for ( size_t i = 0; i < size-1; i++ ) 
+		for ( size_t j = i+1; j < size; j++ ) 
+		  if (cmp( arr[j], arr[i] ) < 0 ) 
+			swap( &arr[i], &arr[j] ); 
+	} 
+
+The convention is that the function pointed to by cmp returns an integer value such that
+
+	a value less than zero indicates that the first argument should be ordered before the second argument;
+	a value greater than zero indicates that the first argument should be ordered after the second argument;
+	a value equal to zero indicates that the two elements have the same ordering;
+
+So in the code above, if the result of cmp( arr[j], arr[i] ) is less than 0, that means that the value in arr[j] should come before the value in arr[i].
+
+So to sort the array in different orders, you write different comparison functions like
+
+	/** 
+	 * Used to sort an int array in ascending order 
+	 */ 
+	int cmp_int_asc( const int *a, const int *b ) 
+	{ 
+	  if ( *a < *b ) 
+		return -1; 
+	  if ( *a > *b ) 
+		return 1; 
+	 
+	  return 0; 
+	} 
+	 
+	/** 
+	 * Used to sort an array in descending order 
+	 */ 
+	int cmp_int_desc( const int *a, const int *b ) 
+	{ 
+	  if ( *a < *b ) 
+		return 1; 
+	  if ( *a > *b ) 
+		return -1; 
+	 
+	  return 0; 
+	} 
+	 
+	/** 
+	 * Used to sort an array in asciibetical order 
+	 */ 
+	int cmp_int_ascii( const int *a, const int *b ) 
+	{ 
+	  char abuf[15], bbuf[15]; 
+	 
+	  sprintf( abuf, "%d", *a ); 
+	  sprintf( bbuf, "%d", *b ); 
+	 
+	  return strcmp( abuf, bbuf ); 
+	} 
+
+And you’d use it something like this:
+
+	int main( void ) 
+	{ 
+	  int arr[] = {9, 3, 6, 2, 4, 5, 1, 7, 0, 8 }; 
+	   
+	  /** 
+	   * sort the array in ascending order 
+	   */ 
+	  bubble( arr, 10, cmp_int_asc ); 
+	 
+	  /** 
+	   * sort the array in descending order 
+	   */ 
+	  bubble( arr, 10, cmp_int_desc ); 
+	 
+	  /** 
+	   * sort the array in asciibetical order 
+	   */ 
+	  bubble( arr, 10, cmp_int_ascii ); 
+	} 
+
+Loading functions from shared libraries
+
+Functions from shared libraries are loaded at run time, not at link time, so you need to use a pointer to access the function in the shared library (sort of similar to how dynamic memory routines have to return a pointer). Here’s an example from the dlopen man page:
+
+	#include <stdio.h> 
+	#include <stdlib.h> 
+	#include <dlfcn.h> 
+	#include <gnu/lib-names.h>	/* Defines LIBM_SO (which will be a 
+								   string such as "libm.so.6") */ 
+	int 
+	main(void) 
+	{ 
+		void *handle; 
+		double (*cosine)(double); 
+		char *error; 
+	 
+		handle = dlopen(LIBM_SO, RTLD_LAZY); 
+		if (!handle) { 
+			fprintf(stderr, "%s\n", dlerror()); 
+			exit(EXIT_FAILURE); 
+		} 
+		dlerror();	  /* Clear any existing error */ 
+	 
+		cosine = (double (*)(double)) dlsym(handle, "cos"); 
+	 
+		/* According to the ISO C standard, casting between function 
+		   pointers and 'void *', as done above, produces undefined results. 
+		   POSIX.1-2001 and POSIX.1-2008 accepted this state of affairs and 
+		   proposed the following workaround: 
+	 
+	 
+		   *(void **) (&cosine) = dlsym(handle, "cos"); 
+	 
+		   This (clumsy) cast conforms with the ISO C standard and will 
+		   avoid any compiler warnings. 
+	 
+		   The 2013 Technical Corrigendum 1 to POSIX.1-2008 improved matters 
+		   by requiring that conforming implementations support casting 
+		   'void *' to a function pointer.	Nevertheless, some compilers 
+		   (e.g., gcc with the '-pedantic' option) may complain about the 
+		   cast used in this program. */ 
+	 
+		error = dlerror(); 
+		if (error != NULL) { 
+			fprintf(stderr, "%s\n", error); 
+			exit(EXIT_FAILURE); 
+		} 
+	 
+		printf("%f\n", (*cosine)(2.0)); 
+		dlclose(handle); 
+		exit(EXIT_SUCCESS); 
+	} 
+
+State machines
+
+I don’t have a good example of a state machine handy. Here’s a short example I found online — do not take this as an endorsement of the site:
+
+
+
+---
+

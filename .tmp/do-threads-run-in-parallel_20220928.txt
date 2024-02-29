@@ -1,0 +1,61 @@
+filename: do-threads-run-in-parallel_20220928.txt
+https://code.quora.com/Do-Java-threads-run-in-parallel-How-does-multithreading-work-in-Java-4
+
+Do Java threads run in parallel? How does multithreading work in Java?
+
+Hey Guys!
+
+Whether you’re writing code in Java, Python, Ruby, or another language, it’s useful to understand how multithreading works on the inside and what multithreading can do for you.
+
+The first thing you need to know about threads is that they don’t run in parallel; this concept often confuses programmers new to threading, but it’s pretty simple once you get the hang of it.
+
+In the following article, we’ll take a look at some of the basics of multithreading in Java and how threads run in parallel instead of at the same time.
+
+What are Java threads?
+
+Threads are lightweight processes that can run concurrently within a single program. Java threads are controlled by the JVM, and each thread has its stack. Threads can be created either by extending the Thread class or by implementing the Runnable interface.
+
+When a Java program starts, one initial thread is created, which is responsible for running the main() method. Additional threads can be created as needed. Each thread has a priority, which determines when it will be scheduled to run by the JVM.
+
+What are the benefits of multithreading?
+
+Multithreading has several benefits. Perhaps most importantly, it allows a program to run more efficiently by making better use of a processor's capabilities.
+
+In addition, multithreading can make a program more responsive to user input by allowing certain tasks to be performed in the background while the user is still interacting with the program.
+
+Finally, multithreading can improve the stability of a program by allowing different parts of the program to run in separate threads so that if one thread crashes, the others can continue running.
+
+Are there any negative impacts to using multithreading?
+
+While multithreading can help you achieve parallelism, it is not without its potential negative impacts. First, creating and managing threads requires additional system resources.
+
+Second, if not done carefully, multithreading can lead to race conditions and other forms of unexpected behavior.
+
+Third, because threads share a memory, they can interfere with each other's execution if not properly synchronized.
+
+Fourth, deadlocks can occur when two or more threads are waiting for each other to release a resource.
+
+Fifth, livelock is a situation where two or more threads are unable to make progress because they are constantly reacting to changes in the state of the other threads.
+
+What is the difference between a thread and a process?
+
+In computing, a process is an instance of a computer program that is being executed. It contains the program code and its current activity. As a result, multiple processes may be running at the same time on a single computer.
+
+A thread is the smallest unit of processing that can be scheduled by an operating system. A process can contain multiple threads. In Java, threads live inside processes and both processes and threads are handled by the operating system.
+
+Threads are often called lightweight processes because they share the same address space as other threads in the same process.
+
+This allows them to communicate with each other more easily than if they were in different processes. In addition, all threads in a process share the same global variables and file descriptors (like open files).
+
+When should I use an executor service instead of multiple threads?
+
+An executor service is a thread pool that can be used to manage multiple threads. It's more efficient than creating and managing threads individually because it eliminates the need for thread creation and management overhead.
+
+Plus, an executor service can provide thread pools of different sizes to suit your needs. If you have a large number of tasks that need to be run in parallel, an executor service will be more efficient than using multiple threads.
+
+How can I monitor my application's memory usage when using multi-threading (throughput vs latency)?
+
+Throughput is the number of threads that can be executed in a given unit of time. In other words, it's a measure of how fast your application can process multiple tasks simultaneously.
+
+Latency, on the other hand, is the amount of time it takes for a single thread to complete its task. When it comes to monitoring your application's memory usage, you'll want to keep an eye on both throughput and latency.
+

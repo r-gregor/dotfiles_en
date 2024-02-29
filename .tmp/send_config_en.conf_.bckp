@@ -1,0 +1,10 @@
+# define email variables:
+# Header info:
+gSmtp='mail.jhl.si:587'
+gFrom="gregor.redelonghi@energetika.si"
+gTo='gredelonghi@gmail.com'
+
+# Credentals:
+gUnm="gregor.redelonghi@energetika.si"
+gPsswd='/En/gr.01/'
+
