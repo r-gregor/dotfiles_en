@@ -260,7 +260,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tomasiser/vim-code-dark'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'dense-analysis/ale'
 " Plug 'inkarkat/vim-ingo-library'
 " Plug 'inkarkat/vim-ShowTrailingWhitespace'
