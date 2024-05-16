@@ -1,94 +1,266 @@
-What is the purpose of using do {...} while (0) in macros?
-This question previously had details. They are now in a comment.
-Profile photo for Robert Love
-Robert Love
-Even Stroustrup isn't an expert in C++.Upvoted by
-Raghavan Santhanam
-, Passionate C programmer since 2000. and
-Charles Banas
-, C++ programmer for over 15 yearsUpdated 11y
-Originally Answered: What's the purpose of using do {...} while (0)?
+Changing rpath in an Already Compiled Binary
 
-The do/while(0) pattern seen in many if not most macros in the Linux kernel and elsewhere has a specific purpose: It is the only construct in C that lets you define macros that always work the same way, so that a semicolon after your macro always has the same effect, regardless of how the macro is used (with particularly emphasis on the issue of nesting the macro in an if without curly-brackets).
+Last updated: March 18, 2024
+Written by: Burak Gökmen
+Reviewed by: Saajan Nagendra
 
-Let's consider an example:
+    AdministrationInstallation 
 
-#define foo(x)  bar(x); baz(x)
+    gcc ldd 
 
-Say you used it like this:
+1. Overview
 
-foo(wolf);
+While running an executable in Linux, the dynamic linker, ld.so, resolves shared library dependencies. If the path of a dependency isn’t absolute, the dynamic linker tries to find the dependency in some directories in a specific order. Directories defined in rpath are among the directories used for resolving the dependent shared libraries.
 
-This expands to:
+In this tutorial, we’ll discuss what rpath is and how to change rpath in an already compiled binary.
+2. Brief Information About rpath
 
-bar(wolf); baz(wolf);
+Sometimes, we may need to install an application together with the shared libraries it uses. For example, we may need to build an application with a specific version of the C++ Standard Library, which may be different from the one available in the system. Installing these accompanying shared libraries in one of the standard directories or updating the LD_LIBRARY_PATH environment variable may not be possible as these solutions affect the whole system. Therefore, we need to install these libraries in a directory that only the application knows.
 
-So far, so good. That does what you intended. But let's consider usage like this:
+rpath might be a solution in these cases. It’s an option of the dynamic linker, ld.so. It adds a hard-coded library search path to the binary to be used during run-time. The dynamic linker searches for shared libraries in an order and the paths in rpath take precedence over the paths in LD_LIBRARY_PATH and other alternatives.
+3. An Example of Changing rpath
 
-    if (!feral) 
-        foo(wolf); 
+In this section, we’ll discuss the source code files we’ll use and how to build and run them.
+freestar
+freestar
+freestar
+3.1. Example Setup
 
-This expands to:
+We have a C source file, main.c, and two subdirectories, foo1 and foo2, in our working directory:
 
-    if (!feral) 
-        bar(wolf); baz(wolf); 
+$ ls -l
+total 12
+drwxr-xr-x 2 alice alice 4096 Jun  5 16:59 foo1
+drwxr-xr-x 2 alice alice 4096 Jun  5 16:59 foo2
+-rw-r--r-- 1 alice alice   70 Jun  5 16:59 main.c
 
-Which is, if sanely formatted:
+Let’s see the contents of the foo1 and foo2 subdirectories:
 
-    if (!feral) 
-        bar(wolf); 
-    baz(wolf); 
+$ ls -l foo1
+-rw-r--r--  1 alice alice   71 Jun  5 16:59 foo.c
+-rw-r--r--  1 alice alice   53 Jun  5 16:59 foo.h
+$ ls -l foo2
+-rw-r--r--  1 alice alice   71 Jun  5 16:59 foo.c
+-rw-r--r--  1 alice alice   53 Jun  5 16:59 foo.h
 
-That likely isn't what you intended. As shown, it isn't possible to write multistatement macros that do the right thing in all situations. You can't make macros behave like functions-without do/while(0).
+The header files, foo1/foo.h and foo2/foo.h, are the same – they have the declaration of a function foo():
 
-Let's revisit our original macro, wrapped in do/while(0):
+#ifndef _FOO_H_
+#define _FOO_H_ 
 
-#define foo(x)  do { bar(x); baz(x); } while (0)
+void foo(); 
 
-Now, this statement is functionally equivalent to the former. The do ensures the logic inside the curly-brackets executes, the while(0) ensures that happens but once. Same as without the loop. So what's different? Let's look at using the macro. Again:
+#endif
 
-    if (!feral) 
-        foo(wolf); 
+The foo() function in foo1/foo.c just prints foo1:
 
-Which now becomes:
+#include <stdio.h>
+#include "foo.h" 
 
-    if (!feral) 
-        do { bar(wolf); baz(wolf); } while (0); 
+void foo()
+{ 
+    printf("foo1\n"); 
+}
 
-Which is the same as:
+The source code in foo2/foo.c is like foo1/foo.c. It just prints foo2:
+freestar
+freestar
+freestar
 
-    if (!feral) { 
-        bar(wolf); 
-        baz(wolf); 
-    } 
+#include <stdio.h>
+#include "foo.h" 
 
-You might rejoin, why not just wrap the macro in curly-brackets? Why also have the do/while(0) logic?
+void foo()
+{ 
+    printf("foo2\n"); 
+}
 
-This is why. Consider:
+Finally, let’s check the content of main.c:
 
-#define foo(x)  { bar(x); baz(x); }
+#include "foo1.h"
 
-And:
+int main(int ac, char **av)
+{ 
+    foo();
 
-    if (!feral) 
-        foo(wolf); 
-    else 
-        bin(wolf); 
+    return 0;
+}
 
-This becomes:
+This program calls the function foo() and then exits.
+3.2. Building the Binaries
 
-    if (!feral) { 
-        bar(wolf); 
-        baz(wolf); 
-    }; 
-    else 
-        bin(wolf); 
+Now, we’ll build the source code. Firstly, let’s build the source code in the foo1 subdirectory to generate a shared library:
 
-Note the stray semicolon, which makes the else a dangling else. If you want people to be able to use your macro like a function and put semicolons where they belong, then this doesn't work.
+$ cd foo1
+$ gcc -fPIC -c foo.c
+$ gcc -shared -o libfoo.so
+$ ls
+foo.c  foo.h  foo.o  libfoo.so
 
-To speak to your examples, the first example probably does not need the do/while(0) pattern, although it might make sense to have that logic in its own scope (a set of nested curly-brackets) depending on what is being passed in for state_value. In Linux, all macros are generally wrapped in do/while(0) as a best practice. I do the same in my code.
+After changing the directory to foo1, we compiled foo.c and generated the object file foo.o using the command gcc -fPIC -c foo.c. The -c option of gcc is for specifying the source code that will be compiled. The -fPIC option, on the other hand, is for generating position-independent code, which is necessary for using the generated code in a shared library.
 
-The second example lacks the do/while(0) pattern because it is just invoking another macro, which is itself already wrapped in do/while(0).
+Then, we built the shared library, libfoo.so, using the command gcc -shared -o libfoo.so.
+freestar
+freestar
+freestar
 
-In conclusion, macros in Linux and other codebases wrap their logic in do/while(0) because it ensures the macro always behaves the same, regardless of how semicolons and curly-brackets are used in the invoking code.
+Building the shared library libfoo.so in the foo2 subdirectory is the same:
+
+$ cd ../foo2
+$ gcc -fPIC -c foo.c
+$ gcc -shared -o libfoo.so
+$ ls
+foo.c  foo.h  foo.o  libfoo.so
+
+Having built the shared libraries in the foo1 and foo2 subdirectories, it’s time to build main.c:
+
+$ cd ..
+$ gcc -o main main.c -I./foo1 -L./foo1 lfoo -Wl,-rpath,./foo1
+$ ls
+foo1  foo2  main  main.c
+
+As the output of the ls command shows, we were successful in building the binary main. The –I./foo1 option of gcc is necessary for locating the header file ./foo1/foo.h. Similarly, the -L./foo1 option is necessary for the linker to find the library ./foo1/libfoo.so. We specify the library to be linked with main using lfoo.
+
+The last option we pass to gcc, namely -Wl,-rpath,./foo1, is for specifying the rpath. The -Wl option lets us pass options to the linker. In our example, we pass the –rpath option to the linker, and its value is ./foo1. We can also specify it as -Wl,-rpath=./foo1.
+3.3. Running the Program
+
+Having built the binary main, we’ll now run it. However, let’s check its shared library dependencies using ldd before running it:
+
+$ ldd main
+       linux-vdso.so.1 (0x00007ffc3ebcd000)
+       libfoo.so => ./foo1/libfoo.so (0x00007ff38fe19000)
+       libc.so.6 => /lib64/libc.so.6 (0x00007ff38fa54000)
+       /lib64/ld-linux-x86.64.so.2 (0x00007ff39001b000) 
+
+It shows that main uses ./foo1/libfoo.so. Generally, we use the LD_LIBRARY_PATH environment variable to load the necessary shared libraries. However, it isn’t defined in our environment:
+
+$ echo $LD_LIBRARY_PATH
+
+Therefore, the runtime linker, ld.so, locates the library libfoo.so thanks to the rpath option.
+
+Now, let’s run the program:
+freestar
+
+$ ./main
+foo1
+
+The program runs as expected. It calls the foo() function defined in foo1/foo.c.
+4. Changing rpath Using chrpath
+
+Now, we’ll try to use the foo() function defined in foo2/foo.c, which prints foo2 instead of foo1. It’s in the library foo2/libfoo.so.
+
+Firstly, let’s check the rpath in the binary main. We’ll use the chrpath command:
+
+$ chrpath -l main
+main: RPATH=./foo1
+
+The -l option lists the current rpath in a binary. As is apparent from the output of chrpath -l main command, the rpath defined in main is ./foo1 as expected.
+
+We can change the rpath defined in a binary using the -r option of chrpath:
+
+$ chrpath -r ./foo2 main
+main: RPATH=./foo1
+main: new RPATH=./foo2
+
+We pass the new value for rpath after the -r option, which is ./foo2 in our case. Then, we specify the binary name, main. As the output shows, we’re successful in changing the already existing rpath in main. Let’s verify it again using chrpath:
+
+$ chrpath -l main
+main: RPATH=./foo2
+
+Additionally, let’s check the shared library dependencies of main using ldd:
+
+$ ldd main
+       linux-vdso.so.1 (0x00007ffc04dda000)
+       libfoo.so => ./foo2/libfoo.so (0x00007ffa29c4d000)
+       libc.so.6 => /lib64/libc.so.6 (0x00007ffa29888000)
+       /lib64/ld-linux-x86.64.so.2 (0x00007ffa29e4f000) 
+
+After changing the rpath, main uses ./foo2/libfoo.so. Let’s run the program once more:
+freestar
+
+$ ./main
+foo2
+
+This time, the program uses the foo() function defined in foo2/foo.c. We were successful in changing the library used by a binary by changing the rpath defined in the binary.
+
+One caveat about changing rpath is that the length of the new path cannot be larger than the old one:
+
+$ chrpath -r ./foo22 main
+main: RPATH=./foo2
+new rpath './foo22' too large; maximum length 6
+
+As the length of the previous string, ./foo2, and the new string, ./foo22, are six and seven, respectively, chrpath doesn’t allow rpath to be changed.
+5. Changing rpath Using patchelf
+
+We can also use the patchelf command for changing the rpath in an already compiled binary:
+
+$ chrpath –l main
+main: RPATH=./foo2
+$ patchelf --force-rpath --set-rpath ./foo1 main
+$ chrpath -l main
+main: RPATH=./foo1
+
+The rpath in main is ./foo2 as the output of the first chrpath –l main command shows. The –set-rpath option of patchelf changes the rpath in a binary to the given rpath. We must also supply the –force-rpath option, otherwise it changes another dynamic symbol named runpath. This is similar to rpath, but the dynamic linker uses LD_LIBRARY_PATH before runpath for locating shared libraries.
+
+The output of the second chrpath –l main command shows that we’re successful in setting the rpath. Let’s verify it by running main:
+
+$ ./main
+foo1
+
+The program runs as expected.
+6. Changing rpath Including $ORIGIN
+
+Our examples up to this point specified rpath as a relative path to the executable main. This is fine as far as we run main in the current directory. Let’s check what happens when we run main from another directory, for example /tmp:
+freestar
+
+$ pwd
+/home/alice/work/chrpath_example
+$ ls
+foo1  foo2  main  main.c
+$ cd /tmp
+$ /home/alice/work/chrpath_example/main
+/home/alice/work/chrpath_example/main: error while loading shared libraries: libfoo.so: cannot open shared object file: No such file or directory
+
+We weren’t successful this time as the dynamic linker looks for libfoo.so in the non-existing /tmp/foo1 directory because of the relative path in rpath.
+
+We can use a special string, $ORIGIN, in this case. $ORIGIN has the meaning of “the directory containing the application” for the dynamic linker.
+
+Let’s rebuild main using $ORIGIN:
+
+$ cd /home/alice/work/chrpath_example
+$ rm main
+$ gcc -o main main.c -I./foo1 -L./foo1 lfoo -Wl,-rpath,'$ORIGIN'/foo1
+$ chrpath –l main
+main: RPATH=$ORIGIN/foo1
+
+This time, we specify rpath using the option -Wl,-rpath,’$ORIGIN’/foo1. The single quotes around $ORIGIN are necessary to prevent $ORIGIN as is without environment variable expansion.  Let’s run main again from /tmp again:
+
+$ cd /tmp
+$ /home/alice/work/chrpath_example/main
+foo1
+
+We were successful in running main this time from /tmp. Now, let’s change rpath using chrpath to use foo2/libfoo.so, and then run main:
+
+$ chrpath -r '$ORIGIN'/foo2 /home/alice/work/chrpath_example/main
+/home/alice/work/chrpath_example/main: RPATH=$ORIGIN/foo1
+/home/alice/work/chrpath_example/main: new RPATH=$ORIGIN/foo2
+$ /home/alice/work/chrpath_example/main
+foo2
+
+Therefore, we’re successful in changing rpath having $ORIGIN in its specification.
+
+We can use $ORIGIN with patchelf in the same manner:
+
+$ patchelf --force-rpath --set-rpath '$ORIGIN'/foo1 main
+$ chrpath -l main
+main: RPATH=$ORIGIN/foo1
+
+7. Conclusion
+
+In this article, we discussed how to change rpath in an already compiled binary.
+freestar
+
+Firstly, we learned what rpath is – it’s an alternative to using LD_LIBRARY_PATH. Then, we understood that we can use chrpath for both checking and setting the rpath in a binary. We saw that patchelf is another alternative of chrpath. Finally, we discussed how to set rpath including $ORIGIN string.
+
+Comments are open for 30 days after publishing a post. For any issues past this date, use the Contact form on the site.
 
