@@ -28,3 +28,10 @@
 	prompt = false
 [credential]
 	helper = cache
+#
+# 20240602
+# from https://euroquis.nl//blabla/2024/06/01/git.html
+[alias]
+	flog = log --name-status
+	glog = log --oneline --decorate --graph
+
