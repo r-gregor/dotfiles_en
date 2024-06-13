@@ -1,5 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =9
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/c/Users/gregor.redelonghi/majstaf_en/BRISI'
+let g:netrw_dirhist_1='/c/Users/gregor.redelonghi/majstaf_en'
+let g:netrw_dirhist_0='/c/Users/gregor.redelonghi/majstaf_en/BRISI'
 let g:netrw_dirhist_9='/home/gregor.redelonghi/majstaf_en/metsys_en/vim_metsys'
 let g:netrw_dirhist_8='/home/gregor.redelonghi/majstaf/majbin'
 let g:netrw_dirhist_7='/home/gregor.redelonghi/majstaf'
@@ -7,6 +10,3 @@ let g:netrw_dirhist_6='/home/gregor.redelonghi'
 let g:netrw_dirhist_5='/home/gregor.redelonghi/.vim/vimplugs/neodark.vim/autoload/airline/themes'
 let g:netrw_dirhist_4='/home/gregor.redelonghi/.vim/vimplugs/neodark.vim/autoload/airline'
 let g:netrw_dirhist_3='/home/gregor.redelonghi/.vim/vimplugs/neodark.vim/autoload'
-let g:netrw_dirhist_2='/home/gregor.redelonghi/.vim/vimplugs/neodark.vim'
-let g:netrw_dirhist_1='/home/gregor.redelonghi/.vim/vimplugs'
-let g:netrw_dirhist_0='/home/gregor.redelonghi/.vim'
