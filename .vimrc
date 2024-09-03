@@ -272,7 +272,11 @@ Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'fxn/vim-monochrome'
 
 " 20240214
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" 20240903
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"
+" 20240903
+Plug 'prabirshrestha/vim-lsp'
 
 call plug#end()
 
