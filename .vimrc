@@ -30,6 +30,7 @@ set wildmode=list:longest,full
 set hidden
 set path+=**
 set textwidth=110                   " so gqq works on splitting long lines at 110-th position -- 20240826
+filetype plugin indent on           "20240913
 
 " added 20240212
 " to increase sequences of alpha chars
@@ -277,6 +278,9 @@ Plug 'fxn/vim-monochrome'
 "
 " 20240903
 Plug 'prabirshrestha/vim-lsp'
+
+"20240913
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
