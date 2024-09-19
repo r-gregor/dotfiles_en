@@ -278,12 +278,28 @@ Plug 'fxn/vim-monochrome'
 "
 " 20240903
 Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
 
 "20240913
 Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
+" 20240913
+" ============================================================
+" vim-lsp
+function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+endfunction
+
+augroup lsp_install
+    au!
+    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+"
+" ============================================================
+"
 " --------------- FZF ----------------------------------------
 set rtp+=/usr/bin/fzf
 
