@@ -39,10 +39,10 @@ prompt_left() {
 	blue_lila='\e[01;38;5;111;48;5;141m'
 
 	if [ -d ./.git ] || [ -d ./hooks ]; then
-		info=" git: $(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/' -e 's/$/ /')"
-		echo -e "${orange_bg}${orange_inv}\u@\h ${orange_blue}${blue_inv}\w${off}${blue_lila}${off}${lila_inv}${info}${off}${lila_bg}${off}"
+		git_info=" git: $(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/' -e 's/$/ /')"
+		echo -e "${orange_bg}${orange_inv}\u@\h ${orange_blue}${blue_inv} \w ${off}${blue_lila}${off}${lila_inv}${git_info} ${off}${lila_bg}${off}"
 	else
-		echo -e "${orange_bg}${orange_inv}\u@\h ${orange_blue}${blue_inv} \w${off}${blue_lila}${off}${lila_bg}${off}"
+		echo -e "${orange_bg}${orange_inv}\u@\h ${orange_blue}${blue_inv} \w ${off}${blue_lila}${off}${lila_bg}${off}"
 	fi
 }
 
