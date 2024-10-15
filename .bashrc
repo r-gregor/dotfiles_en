@@ -25,7 +25,7 @@ date_stamp() {
 # 20241014
 prompt_left() {
 	# simple
-	# echo -e "\[\e[01;38;5;75m\][\h] \w"
+	# echo -e "\[\e[01;38;5;75m\][\u@\h] \w"
 
 	# NERD symbols
 	off='\e[m'
@@ -40,9 +40,9 @@ prompt_left() {
 
 	if [ -d ./.git ] || [ -d ./hooks ]; then
 		info=" git: $(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/' -e 's/$/ /')"
-		echo -e "${orange_bg}${orange_inv}\h ${orange_blue}${blue_inv}\w${off}${blue_lila}${off}${lila_inv}${info}${off}${lila_bg}${off}"
+		echo -e "${orange_bg}${orange_inv}\u@\h ${orange_blue}${blue_inv}\w${off}${blue_lila}${off}${lila_inv}${info}${off}${lila_bg}${off}"
 	else
-		echo -e "${orange_bg}${orange_inv}\h ${orange_blue}${blue_inv} \w${off}${blue_lila}${off}${lila_bg}${off}"
+		echo -e "${orange_bg}${orange_inv}\u@\h ${orange_blue}${blue_inv} \w${off}${blue_lila}${off}${lila_bg}${off}"
 	fi
 }
 
