@@ -21,6 +21,14 @@ date_stamp() {
 # 20240214
 # check: symbols and prompts_20240214.txt in ~/majstaf_en/metsys_en/
 
+decorate_link() {
+	pth=$(pwd)
+	if [ -L $pth ]; then
+		echo "[$pth]"
+	else
+		echo "$pth"
+	fi
+}
 
 # 20241014
 prompt_left() {
@@ -40,9 +48,11 @@ prompt_left() {
 
 	if [ -d ./.git ] || [ -d ./hooks ]; then
 		git_info=" git: $(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/' -e 's/$/ /')"
-		echo -e "${orange_bg}${orange_inv}\u@\h ${orange_blue}${blue_inv} \w ${off}${blue_lila}${off}${lila_inv}${git_info} ${off}${lila_bg}${off}"
+		echo -e "${orange_bg}${orange_inv}\u@\h ${orange_blue}${blue_inv} $(pwd) ${off}${blue_lila}${off}${lila_inv}${git_info} ${off}${lila_bg}${off}"
+		# echo -e "${orange_bg}${orange_inv}\u@\h ${orange_blue}${blue_inv} $(decorate_link) ${off}${blue_lila}${off}${lila_inv}${git_info} ${off}${lila_bg}${off}"
 	else
-		echo -e "${orange_bg}${orange_inv}\u@\h ${orange_blue}${blue_inv} \w ${off}${blue_lila}${off}${lila_bg}${off}"
+		echo -e "${orange_bg}${orange_inv}\u@\h ${orange_blue}${blue_inv} $(pwd) ${off}${blue_lila}${off}${lila_bg}${off}"
+		# echo -e "${orange_bg}${orange_inv}\u@\h ${orange_blue}${blue_inv} $(decorate_link) ${off}${blue_lila}${off}${lila_bg}${off}"
 	fi
 }
 
