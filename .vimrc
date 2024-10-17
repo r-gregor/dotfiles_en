@@ -450,3 +450,4 @@ set cursorcolumn
 hi CursorColumn cterm=NONE ctermbg=232 guifg=NONE guibg='#3F4354'
 hi CursorLine cterm=NONE ctermbg=232 guifg=NONE guibg='#3F4354'
 
+inoremap <C-f> <C-x><C-f>
