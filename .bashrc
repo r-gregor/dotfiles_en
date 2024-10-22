@@ -37,24 +37,29 @@ prompt_left() {
 
 	# NERD symbols
 	off='\e[m'
-	orange_bg='\e[01;38;5;215m'
+	orange_bg='\e[00;38;5;215m'
 	orange_inv='\e[07;38;5;215m'
 	orange_blue='\e[07;48;5;215;38;5;111m'
 
 	blue_inv='\e[07;48;5;0;38;5;111m'
-	blue_bg='\e[01;38;5;111m'
-	blue_lila='\e[01;38;5;111;48;5;141m'
+	blue_bg='\e[00;38;5;111m'
+	blue_lila='\e[00;38;5;111;48;5;141m'
 
-	lila_bg='\e[01;38;5;141m'
+	lila_bg='\e[00;38;5;141m'
 	lila_inv='\e[07;38;5;141;48;5;0m'
 
-	yllw_bg='\e[01;38;5;228m'
+	yllw_bg='\e[00;38;5;228m'
 	yllw_inv='\e[07;38;5;228m'
-	blue_yllw='\e[01;38;5;111;48;5;228m'
+	blue_yllw='\e[00;38;5;111;48;5;228m'
 
-	red_bg='\e[01;91m'
+	red_bg='\e[00;91m'
 	red_inv='\e[07;91m'
-	blue_red='\e[01;38;5;111;101m'
+	blue_red='\e[00;38;5;111;100m'
+
+	green_bg='\e[00;48;5;47m'
+	green='\e[00;38;5;47m'
+	green_inv='\e[07;38;5;47m'
+	blue_green='\e[00;38;5;111;48;5;47m'
 
 	if [ -d ./.git ] || [ -d ./hooks ]; then
 		git_info=" git: $(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/' -e 's/$/ /')"
@@ -65,7 +70,8 @@ prompt_left() {
 			echo -e "${orange_bg}${orange_inv}\u@\h${orange_blue}${blue_inv}\w${off}${blue_red}${off}${red_inv}${git_info}${off}${red_bg}${off}"
 		fi
 	else
-		echo -e "${orange_bg}${orange_inv}\u@\h ${orange_blue}${blue_inv} $(pwd) ${off}${blue_lila}${off}${lila_bg}${off}"
+		# echo -e "${orange_bg}${orange_inv}\u@\h ${orange_blue}${blue_inv} $(pwd) ${off}${blue_lila}${off}${lila_bg}${off}"
+		echo -e "${orange_bg}${orange_inv}\u@\h ${orange_blue}${blue_inv} $(pwd) ${off}${blue_bg}${off}"
 	fi
 }
 
