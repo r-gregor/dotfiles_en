@@ -65,13 +65,13 @@ prompt_left() {
 		git_info=" git: $(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/' -e 's/$/ /')"
 		/usr/bin/git status -b | grep -i "new file\|modified\|untracked\|deleted" &>/dev/null
 		if [ $? -eq 0 ]; then
-			echo -e "${orange_bg}${orange_inv}\u@\h${orange_blue}${blue_inv}\w${off}${blue_red}${off}${red_inv}${git_info}${off}${red_bg}${off}"
+			echo -e "${orange_bg}${orange_inv}\u@\h${orange_blue}${blue_inv} \w ${off}${blue_red}${off}${red_inv}${git_info}${off}${red_bg}${off}"
 		else
 			/usr/bin/git status -b | grep -i "ahead\|pull" &>/dev/null
 			if [ $? -eq 0 ]; then
-				echo -e "${orange_bg}${orange_inv}\u@\h${orange_blue}${blue_inv}\w${off}${blue_green}${off}${green_inv}${git_info}${off}${green}${off}"
+				echo -e "${orange_bg}${orange_inv}\u@\h${orange_blue}${blue_inv} \w ${off}${blue_green}${off}${green_inv}${git_info}${off}${green}${off}"
 			else
-				echo -e "${orange_bg}${orange_inv}\u@\h ${orange_blue}${blue_inv}\w${off}${blue_yllw}${off}${yllw_inv}${git_info}${off}${yllw_bg}${off}"
+				echo -e "${orange_bg}${orange_inv}\u@\h ${orange_blue}${blue_inv} \w ${off}${blue_yllw}${off}${yllw_inv}${git_info}${off}${yllw_bg}${off}"
 			fi
 		fi
 	else
