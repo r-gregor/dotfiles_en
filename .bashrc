@@ -87,7 +87,7 @@ prompt_next() {
 	# NERD symbols
 	# echo -e  "\[\e[1;31m\]\u21AA \[\e[0m\]"
 	# echo -e  "\[\e[1;31m\] \[\e[0m\]"
-	echo -e  "\[\e[1;31m\] \[\e[0m\]"
+	echo -e  "\[\e[0;31m\] \[\e[0m\]"
 }
 
 # 20241014
