@@ -1,10 +1,12 @@
+#######
 # PS1
+#######
 source ~/majstaf_en/majrcs_en/bashrc_prompt_nerd_gredelonghi_en
 
 
-# ================
+##################
 # external sources
-# ================
+##################
 source $HOME/majstaf_en/majrcs_en/bashrc_gredelonghi_en
 source $HOME/majstaf_en/majrcs_en/aliases_gredelonghi_en
 source $HOME/majstaf_en/majrcs_en/funclist_en
@@ -14,11 +16,25 @@ source $HOME/.SCRTS_en
 
 # eval "`dircolors -b $HOME/.dircolorsrc`"
 
+#######################
+# colored man pages ...
+#######################
+export LESS_TERMCAP_mb=$'\e[1;32m'
+export LESS_TERMCAP_md=$'\e[1;32m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[01;33m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;4;31m'
+
+
+
 # export LANG=sl_SI.utf8
 export LANG=en_US.utf8
 
-
-###  EN-proxy ...
+##############
+# EN-proxy ...
+##############
 prx_ip=10.91.8.21
 export http_proxy=http://${prx_ip}:80/
 export ftp_proxy=ftp://${prx_ip}:8021/
