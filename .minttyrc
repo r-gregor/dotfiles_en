@@ -16,5 +16,6 @@ OpaqueWhenFocused=no
 BackgroundColour=54,101,188
 EmojiPlacement=stretch
 FontIsBold=no
-Background=C:\Users\gregor.redelonghi\majstaf_en\majprogs_en\cygwin64\home\gregor.redelonghi\.config\mintty\backgrounds\bgimg_01_01.png
+Background=
 
+Term=xterm-256color
