@@ -10,7 +10,6 @@ source ~/majstaf_en/majrcs_en/bashrc_prompt_nerd_gredelonghi_en
 source $HOME/majstaf_en/majrcs_en/bashrc_gredelonghi_en
 source $HOME/majstaf_en/majrcs_en/aliases_gredelonghi_en
 source $HOME/majstaf_en/majrcs_en/funclist_en
-source $HOME/majstaf_en/majrcs_en/startfuncs_en
 source $HOME/majstaf_en/majconfig_en/centralna_en.conf
 source $HOME/.SCRTS_en
 
