@@ -114,3 +114,33 @@ ls
 mput /c/Users/gregor.redelonghi/majstaf/r.gregor.en/start.en/dnevno/dnevno*
  1695108504
 exit
+ 1737537746
+lftp -e "set ftp:passive-mode 0" r-gregor.slohosting.com:z7m17s11@free.slohosting.com
+ 1737537749
+ls
+ 1737537753
+cd dnevno/
+ 1737537755
+ls
+ 1737537765
+exit
+ 1737537774
+lftp -e "set ftp:passive-mode 0" r-gregor.slohosting.com:z7m17s11@free.slohosting.com
+ 1737537776
+ls
+ 1737537779
+cd dnevno/
+ 1737537789
+mput programiranje.html programiranje-black.html 
+ 1737537791
+ls
+ 1737537800
+rm dnevno.html 
+ 1737537803
+rm dnevno-black.html 
+ 1737537809
+mput dnevno.html dnevno-black.html 
+ 1737537812
+ls
+ 1737537816
+exit
