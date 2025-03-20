@@ -1,6 +1,7 @@
 " EN: LAST CHANGE 20240226
 "
 " ------------ DEFAULT SETTINGS -------------------------------
+set encoding=utf-8
 set nocompatible                    " This must be first, because it changes other options as a side effect.
 set backspace=indent,eol,start      " allow backspacing over everything in insert mode
 set history=50                      " keep 50 lines of command line history
@@ -115,13 +116,15 @@ ab sbng #! /usr/bin/env bash<cr><cr>### Name:<tab>Scriptname ...<cr>### Author:<
 " ab grv ${gr_} 
 ab pt3 #! /usr/bin/env python3<cr># -*- coding: utf-8 -*-<cr><cr>
 ab sout System.out.println(
+ab zst const std = @import("std");<cr><cr>pub fn main() !void {<cr>const stdout = std.io.getStdOut().writer();<cr>const stdin  = std.io.getStdiIn().reader();<cr><cr>try stdout.print("I'm Alive!\n", .{});<cr><cr>}
 
 " ----------------- ENCLOSING BRACKETS/SQUARE/CURLY ------------
 "inoremap ${ ${}<Left>
-inoremap ${ ${}<ESC>hli
-inoremap {  {}<ESC>hli
-inoremap (  ()<ESC>hli
-inoremap [  []<ESC>hli
+inoremap ${! ${}<ESC>hli
+inoremap {! {}<ESC>hli
+inoremap (! ()<ESC>hli
+inoremap [! []<ESC>hli
+
 
 " ----------------- ADD/REMOVE QUOTES AROUND WORD --------------
 " Quote a word consisting of letters from iskeyword.
@@ -451,3 +454,9 @@ hi CursorColumn cterm=NONE ctermbg=232 guifg=NONE guibg='#3F4354'
 hi CursorLine cterm=NONE ctermbg=232 guifg=NONE guibg='#3F4354'
 
 inoremap <C-f> <C-x><C-f>
+
+
+" 20250314
+" move line under the cursor inside []
+noremap ,ss 0vg_xi[<c-r>"]<esc>j<cr>
+
