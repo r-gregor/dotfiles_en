@@ -111,20 +111,26 @@ nnoremap <space>, :set listchars-=space:⋅ <CR>
 " ------ 20240115 catpucin_ theme for lightline ---------------
 let g:lightline = {'colorscheme': 'catppuccin_mocha'}
 
+
+" ----------------- SYNTAX SETUP MAPPINGS ----------------------
+noremap ,stb :so ~/.vimrc <bar> :set syntax=bash<CR>
+noremap ,stz :so ~/.vimrc <bar> :set syntax=zig<CR>
+noremap ,stp :so ~/.vimrc <bar> :set syntax=python<CR>
+noremap ,stc :so ~/.vimrc <bar> :set syntax=c<CR>
+noremap ,stj :so ~/.vimrc <bar> :set syntax=java<CR>
+
 " ----------------- ABBREVIATIONS 01 ---------------------------
-ab sbng #! /usr/bin/env bash<cr><cr>### Name:<tab>Scriptname ...<cr>### Author:<tab>Author ... <cr>### Date:<tab> <cr>### Decription:<cr>### <cr>### <cr>### <cr><esc>:so ~/.vimrc | :set syntax=bash
-" ab grv ${gr_} 
+ab sbng #! /usr/bin/env bash<cr><tab>
 ab pt3 #! /usr/bin/env python3<cr># -*- coding: utf-8 -*-<cr><cr><esc>:so ~/.vimrc | :set syntax=python
 ab sout System.out.println(
 ab zst const std = @import("std");<cr><cr>pub fn main() !void {<cr>const out = std.io.getStdOut().writer();<cr>const in = std.io.getStdiIn().reader();<cr><cr>try out.print("I'm Alive!\n", .{});<cr><cr>}<cr><esc>:so ~/.vimrc | :set syntax=zig
 
 " ----------------- ENCLOSING BRACKETS/SQUARE/CURLY ------------
-"inoremap ${ ${}<Left>
 inoremap ${{ ${}<ESC>hli
 inoremap {{ {}<ESC>hli
 inoremap (( ()<ESC>hli
 inoremap [[ []<ESC>hli
-
+inoremap [[[ [[]]<ESC>hli
 
 " ----------------- ADD/REMOVE QUOTES AROUND WORD --------------
 " Quote a word consisting of letters from iskeyword.
