@@ -120,10 +120,10 @@ ab zst const std = @import("std");<cr><cr>pub fn main() !void {<cr>const out = s
 
 " ----------------- ENCLOSING BRACKETS/SQUARE/CURLY ------------
 "inoremap ${ ${}<Left>
-inoremap ${! ${}<ESC>hli
-inoremap {! {}<ESC>hli
-inoremap (! ()<ESC>hli
-inoremap [! []<ESC>hli
+inoremap ${{ ${}<ESC>hli
+inoremap {{ {}<ESC>hli
+inoremap (( ()<ESC>hli
+inoremap [[ []<ESC>hli
 
 
 " ----------------- ADD/REMOVE QUOTES AROUND WORD --------------
@@ -336,15 +336,13 @@ nnoremap <leader>x vllc/* <ESC>A */<ESC>
 
 
 " ------------- C-ABBREVIATIONS ------------------------------
-" update 20230922
-ab cmn1 #include <stdio.h><CR>#include <string.h><CR><CR><CR>int main(void<right> {<CR><CR><CR><CR><TAB>return 0;<CR><ESC>4ki
-ab cmn2 #include <stdio.h><CR>#include <string.h><CR><CR><CR>int main(int argc, char **argv<right> {<CR><CR><CR><CR><TAB>return 0;<CR><ESC>4ki
-ab cstrt #include <stdio.h><CR>#include <string.h><CR><CR><CR>int main(void<right> {<CR><CR><CR><CR><TAB>return 0;<CR><ESC>4ki
+" update 20250321
+ab cstv #include <stdio.h><CR>#include <string.h><CR><CR><CR>int main(void)<right> {<CR><CR><CR><CR><CR>return 0;<CR>}<ESC>4ki<TAB>printf("I'm Alive");<ESC>:so ~/.vimrc | :set syntax=c
+ab cst #include <stdio.h><CR>#include <string.h><CR><CR><CR>int main(int argc, char **argv)<right> {<CR><CR><CR><CR><CR>return 0;<CR>}<ESC>4ki<TAB>printf("I'm Alive");<ESC>:so ~/.vimrc | :set syntax=c
 
+" break line at position 110 chars
 " 0110lbikba
-" nnoremap <leader>b 0110lbi<BS><CR><ESC>
 nnoremap ,b 0110lbi<BS><CR><ESC>
-
 
 
 " move entire lines around (from: https://vim.fandom.com/wiki/Moving_lines_up_or_down)
