@@ -1,7 +1,8 @@
 #######
 # PS1
 #######
-source ~/majstaf_en/majrcs_en/bashrc_prompt_nerd_gredelonghi_en
+# source ~/majstaf_en/majrcs_en/bashrc_prompt_nerd_gredelonghi_en
+source ~/majstaf_en/majrcs_en/bashrc_prompt_bare_gredelonghi_en
 
 
 ##################
