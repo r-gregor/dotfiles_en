@@ -1,17 +1,17 @@
 #######
 # PS1
 #######
-# source ~/majstaf_en/majrcs_en/bashrc_prompt_nerd_gredelonghi_en
-source ~/majstaf_en/majrcs_en/bashrc_prompt_bare_gredelonghi_en
+# source ~/majstaf/majrcs/bashrc-prompt-nerd-gredelonghi-en
+source ~/majstaf/majrcs/bashrc-prompt-bare-gredelonghi-en
 
 
 ##################
 # external sources
 ##################
-source $HOME/majstaf_en/majrcs_en/bashrc_gredelonghi_en
-source $HOME/majstaf_en/majrcs_en/aliases_gredelonghi_en
-source $HOME/majstaf_en/majrcs_en/funclist_en
-source $HOME/majstaf_en/majconfig_en/centralna_en.conf
+source $HOME/majstaf/majrcs/bashrc-gredelonghi-en
+source $HOME/majstaf/majrcs/aliases-gredelonghi-en
+source $HOME/majstaf/majrcs/funclist-en
+source $HOME/majstaf/majconfig/centralna_en.conf
 source $HOME/.SCRTS_en
 
 # eval "`dircolors -b $HOME/.dircolorsrc`"
