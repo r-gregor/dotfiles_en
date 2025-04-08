@@ -11,7 +11,7 @@ source ~/majstaf/majrcs/bashrc-prompt-bare-gredelonghi-en
 source $HOME/majstaf/majrcs/bashrc-gredelonghi-en
 source $HOME/majstaf/majrcs/aliases-gredelonghi-en
 source $HOME/majstaf/majrcs/funclist-en
-source $HOME/majstaf/majconfig/centralna_en.conf
+source $HOME/majstaf/majrcs/centralna-en.conf
 source $HOME/.SCRTS_en
 
 # eval "`dircolors -b $HOME/.dircolorsrc`"
