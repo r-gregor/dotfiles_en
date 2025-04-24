@@ -62,5 +62,5 @@ fi
 
 # 20241003
 # after installing zoxside (for cygwin only): curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
-# eval "$(zoxide init bash)"
+eval "$(zoxide init bash)"
 
