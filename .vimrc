@@ -286,8 +286,8 @@ Plug 'fxn/vim-monochrome'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "
 " 20240903
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
+" Plug 'prabirshrestha/vim-lsp'
+" Plug 'mattn/vim-lsp-settings'
 
 "20240913
 Plug 'rust-lang/rust.vim'
