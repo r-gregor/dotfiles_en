@@ -1,1 +1,0 @@
-/home/gregor.redelonghi/majstaf_en/majbin_en/python_venv_and_pip_setup/venv_s3_remove_venv.sh
