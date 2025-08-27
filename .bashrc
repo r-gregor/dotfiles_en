@@ -64,3 +64,8 @@ fi
 # after installing zoxside (for cygwin only): curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 eval "$(zoxide init bash)"
 
+export ENGIT_STATUS_REPORTS="/home/gregor.redelonghi/.tmp/ENGIT_STATUS_REPORTS"
+export ENGIT_TPUSH_REPORTS="/home/gregor.redelonghi/.tmp/ENGIT_TPUSH_REPORTS"
+export TESTING_STATUS_REPORTS="/home/gregor.redelonghi/.tmp/TESTING_STATUS_REPORTS"
+export TESTING_TPUSH_REPORTS="/home/gregor.redelonghi/.tmp/TESTING_TPUSH_REPORTS"
+
