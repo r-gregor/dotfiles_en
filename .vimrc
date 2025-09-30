@@ -311,6 +311,10 @@ augroup END
 "
 " --------------- FZF ----------------------------------------
 set rtp+=/usr/bin/fzf
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
 
 
 " --------------- ALE ----------------------------------------
