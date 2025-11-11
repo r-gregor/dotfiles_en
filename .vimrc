@@ -384,6 +384,7 @@ nnoremap <leader>n :NERDTree<CR>
 
 " ------------- FZF ------------------------------------------
 nnoremap <leader>f :FZF<CR>
+nnoremap <leader>fe :FZF -e<CR>
 
 
 " abbreviations fo java 20220830
