@@ -69,6 +69,6 @@ export ENGIT_TPUSH_REPORTS="/home/gregor.redelonghi/.tmp/ENGIT_TPUSH_REPORTS"
 export TESTING_STATUS_REPORTS="/home/gregor.redelonghi/.tmp/TESTING_STATUS_REPORTS"
 export TESTING_TPUSH_REPORTS="/home/gregor.redelonghi/.tmp/TESTING_TPUSH_REPORTS"
 
-export FZF_CTRL_T_OPTS="--extended-exact"
+# export FZF_CTRL_T_OPTS="--extended-exact"
 export FZF_CTRL_R_OPTS="--extended-exact"
 
