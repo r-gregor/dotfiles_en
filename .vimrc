@@ -383,7 +383,7 @@ vnoremap <Space>4 :s/^\$ /$> /<CR> :nohl <CR><CR>
 nnoremap <leader>n :NERDTree<CR>
 
 " ------------- FZF ------------------------------------------
-nnoremap <leader>f :FZF<CR>
+nnoremap <leader>ff :FZF<CR>
 nnoremap <leader>fe :FZF -e<CR>
 
 
