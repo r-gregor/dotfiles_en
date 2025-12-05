@@ -480,3 +480,7 @@ map ,bt :bufdo tab split<CR><CR>
 " table row dividers
 noremap ,tr 0yyjp}P<ESC>j
 
+" 20251205
+" move '{' after 'func() '
+noremap <space>f jddkA {<ESC>j
+
