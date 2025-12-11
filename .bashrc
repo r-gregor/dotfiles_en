@@ -1,3 +1,6 @@
+# enable globstar (** matching)
+shopt -s globstar
+
 #######
 # PS1
 #######
