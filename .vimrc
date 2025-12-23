@@ -253,7 +253,7 @@ vnoremap ,cu :s/^\s*\* //<CR>gv"xdddkdd"xP<CR>
 " between <code></code> tags
 vnoremap ,cd di<code><CR></code><CR><ESC>kP?<code><CR>:s@.*\(<code>\)@\1@<CR>/</code><CR>:s@.*\(</code>\)@\1@<CR>j
 
-" added 20211105 (en): shift tab and remove spaces 
+" added 20211105 (en): shift tab and remove spaces
 vnoremap ,rr >gv:s/\(\t\+\) \+/\1/g<CR>
 
 " added 20240326 (en)
@@ -491,4 +491,9 @@ noremap <space>sst :set syntax=text<CR>
 noremap <space>ssj :set syntax=java<CR>
 noremap <space>ssp :set syntax=python<CR>
 noremap <space>ssg :set syntax=go<CR>
+
+" 20251223
+" select whole 'main() { ... }' block, formate it with '=' and
+" replace 5 spaces with tabs
+nnoremap <space>= 0Vf{%=gv:s/\(\t\+\) \+/\1/g<CR>
 
