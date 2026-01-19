@@ -482,7 +482,7 @@ noremap ,tr 0yyjp}P<ESC>j
 
 " 20251205
 " move '{' after 'func() '
-noremap <space>f jddkA {<ESC>j
+noremap <space>f jddkA {<ESC>
 
 " 20251210
 noremap <space>ss :set syntax=<CR>
@@ -498,6 +498,7 @@ noremap <space>ssg :set syntax=go<CR>
 nnoremap <space>= 0Vf{%=gv:s/\(\t\+\) \+/\1/g<CR>
 
 " 20260114
-nnoremap <space>v :so ~/.vimrc <BAR> set syntax=c<CR>
+" nnoremap <space>v :so ~/.vimrc <BAR> set syntax=c<CR>
+nnoremap <space>v :so ~/.vimrc <BAR> set syntax=c <BAR> :noh<CR>
 
 
