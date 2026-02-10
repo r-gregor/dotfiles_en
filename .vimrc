@@ -32,6 +32,7 @@ set hidden
 set path+=**
 set textwidth=110                   " so gqq works on splitting long lines at 110-th position -- 20240826
 filetype plugin indent on           "20240913
+set viminfo='100,f1                 "20260210: remember local an d global marks for 100 files
 
 " added 20240212
 " to increase sequences of alpha chars
