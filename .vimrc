@@ -460,11 +460,6 @@ hi CursorLine cterm=NONE ctermbg=232 guifg=NONE guibg='#3F4354'
 
 inoremap <C-f> <C-x><C-f>
 
-
-" 20250314
-" move line under the cursor inside []
-noremap ,ss 0vg_xi[<c-r>"]<esc>j<cr>
-
 " 20250515
 " copy http link into the [number] holder for the link after lyxd-ed document
 " 1 - go inside '[' ']'
@@ -501,7 +496,15 @@ nnoremap <space>= 0Vf{%=gv:s/\(\t\+\) \+/\1/g<CR>
 " nnoremap <space>v :so ~/.vimrc <BAR> set syntax=c<CR>
 nnoremap <space>v :so ~/.vimrc <BAR> set syntax=c <BAR> :noh<CR>
 
-" 20260209
-" put selected text into []
-vnoremap ,bp xi[]<ESC>h""p<ESC>
+" 20260210
+" move line under the cursor inside []
+" move selected text into []
+nnoremap ,sb 0vg_xi[<c-r>"]<esc>j<cr>
+vnoremap ,sb xi[]<ESC>h""p<ESC>
+
+" 20260210 change buffer to file from list
+" from:
+" vim-working-with-buffers-multif-5ppp-20260210.txt
+" https://builtin.com/articles/working-with-buffers-in-vim
+nnoremap <Leader>b :buffers<CR>:buffer<Space>
 
