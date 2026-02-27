@@ -1,6 +1,10 @@
 # enable globstar (** matching)
 shopt -s globstar
 
+# enable expansions of directories as env variables
+# vim $DIRNAME/<tab><tab> (must insert trailnig '/')
+shopt -s direxpand
+
 #######
 # PS1
 #######
