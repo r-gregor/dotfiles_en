@@ -518,4 +518,8 @@ nnoremap <leader>oo :oldfiles<CR>e #<
 nnoremap <space>t :%s/\(^\s*\)\@<=    /\t/g<CR><BAR>:noh<CR>
 vnoremap <space>t :s/\(^\s*\)\@<=    /\t/g<CR><BAR>:noh<CR>
 
+" 20260311
+" replace single quote inside words with apostrophe command:
+nnoremap <space>9 :%s/\([[:alpha:]]\)'\([[:alpha:]]\)/\1´\2/g<CR><BAR>:noh<CR>
+
 
