@@ -487,6 +487,7 @@ noremap <space>sst :set syntax=text<CR>
 noremap <space>ssj :set syntax=java<CR>
 noremap <space>ssp :set syntax=python<CR>
 noremap <space>ssg :set syntax=go<CR>
+noremap <space>ssh :set syntax=sh<CR>
 
 " 20251223
 " select whole 'main() { ... }' block, formate it with '=' and
