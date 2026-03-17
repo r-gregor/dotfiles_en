@@ -236,19 +236,19 @@ vnoremap ,pt :s@\(^\s*\)\(.*\)@\1# \2@<CR>
 vnoremap ,pu :s@\(^\s*\)# @\1@<CR>
 vnoremap ,jv :s@\(^\s*\)\(.*\)@\1// \2@<CR>
 vnoremap ,ju :s@\(^\s*\)// @\1@<CR>
-" 
+
+" added 20211101: C-style comment out visual block
+" updated (en) 20221117
+vnoremap ,ct :s/^/ * /<CR>gv"xdO/*<CR><ESC>0C */<ESC>k"xp<CR>
+vnoremap ,cu :s/^\s*\* //<CR>gv"xdddkdd"xP<CR>
+
 " html comment/uncomment
 vnoremap ,ht :s/\%V\(.*\)\%V/<!-- \1 -->/<CR>
 vnoremap ,hu :s/\%V<!-- \(.*\) -->\%V/\1/<CR>
-" 
 " ---
+"
 vnoremap ,<space> :s@^.\{1,2\} @@<CR>
 vnoremap ,t :s/\(\t\+\) \+/\1/g<CR>
-
-" added 20211101: C-style comment out visual block 
-" updated (en) 20221117
-vnoremap ,cc :s/^/ * /<CR>gv"xdO/*<CR><ESC>0C */<ESC>k"xp<CR>
-vnoremap ,cu :s/^\s*\* //<CR>gv"xdddkdd"xP<CR>
 
 " added 20210629 (d) - enclose visual selection
 " between <code></code> tags
@@ -470,7 +470,8 @@ noremap ,lc fhvg_y<C-o>ci[<C-r>0<ESC>
 
 " 20251114
 " open all buffers into separate tabs
-map ,bt :bufdo tab split<CR><CR>
+" map ,bt :bufdo tab split<CR><CR>
+nnoremap ,bt :bufdo tab split<CR><CR>
 
 " 20251127
 " table row dividers
@@ -527,3 +528,9 @@ nnoremap <space>9 :%s/\([[:alpha:]]\)'\([[:alpha:]]\)/\1´\2/g<CR><BAR>:noh<CR>
 " retab visual sellection
 vnoremap ,rt :retab!<CR>
 
+" 20260317
+" move selected text between '', or between ""
+vnoremap <space>sq xi''<ESC>h""p<ESC>
+vnoremap <space>dq xi""<ESC>h""p<ESC>
+"
+"
