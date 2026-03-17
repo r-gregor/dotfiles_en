@@ -523,4 +523,7 @@ vnoremap <space>t :s/\(^\s*\)\@<=    /\t/g<CR><BAR>:noh<CR>
 " replace single quote inside words with apostrophe command:
 nnoremap <space>9 :%s/\([[:alpha:]]\)'\([[:alpha:]]\)/\1´\2/g<CR><BAR>:noh<CR>
 
+" 20260317
+" retab visual sellection
+vnoremap ,rt :retab!<CR>
 
