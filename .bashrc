@@ -20,22 +20,24 @@ source $HOME/majstaf/majrcs/funclist-en
 source $HOME/majstaf/majrcs/centralna-en.conf
 source $HOME/.SCRTS_en
 
-# eval "`dircolors -b $HOME/.dircolorsrc`"
+eval "`dircolors -b $HOME/.dircolorsrc`"
 
 #######################
 # colored man pages ...
 #######################
-export LESS_TERMCAP_mb=$'\e[1;32m'
-export LESS_TERMCAP_md=$'\e[1;32m'
-export LESS_TERMCAP_me=$'\e[0m'
-export LESS_TERMCAP_se=$'\e[0m'
-export LESS_TERMCAP_so=$'\e[01;33m'
-export LESS_TERMCAP_ue=$'\e[0m'
-export LESS_TERMCAP_us=$'\e[1;4;31m'
+# export LESS_TERMCAP_mb=$'\e[1;31m'
+# export LESS_TERMCAP_md=$'\e[1;31m'
+# export LESS_TERMCAP_me=$'\e[0m'
+# export LESS_TERMCAP_se=$'\e[0m'
+# export LESS_TERMCAP_so=$'\e[01;33;44m;'
+# export LESS_TERMCAP_ue=$'\e[0m'
+# export LESS_TERMCAP_us=$'\e[4;1;31m'
+# export MANPAGER='less'
+source /home/gregor.redelonghi/majstaf/majrcs/termcap-no-comments.bash
 
 
 
-# export LANG=sl_SI.utf8
+ #export LANG=sl_SI.utf8
 export LANG=en_US.utf8
 
 ##############

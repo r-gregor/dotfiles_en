@@ -20,3 +20,4 @@ Background=
 
 Term=xterm-256color
 RewrapOnResize=yes
+CursorColour=255,60,60
