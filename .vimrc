@@ -1,6 +1,6 @@
-" EN: LAST CHANGE 20240226
+" EN: LAST CHANGE 20240421
 "
-" ------------ DEFAULT SETTINGS -------------------------------
+" ============ DEFAULT SETTINGS =============================================================================
 set encoding=utf-8
 set nocompatible                    " This must be first, because it changes other options as a side effect.
 set backspace=indent,eol,start      " allow backspacing over everything in insert mode
@@ -16,41 +16,47 @@ set smartindent
 set laststatus=2
 set t_Co=256
 set termguicolors                   " added 20220922 to enable Hex color codes
-" set nohlsearch
-set hlsearch
-syntax on
+set hlsearch                        " set nohlsearch
 set background=dark
 set number
 set relativenumber
 set ignorecase
 set colorcolumn=110
-hi ColorColumn ctermbg=232 guibg='#3F4354'
 set nowrap
 set wildmenu
 set wildmode=list:longest,full
 set hidden
 set path+=**
 set textwidth=110                   " so gqq works on splitting long lines at 110-th position -- 20240826
-filetype plugin indent on           "20240913
 set viminfo='100,f1                 "20260210: remember local an d global marks for 100 files
+set nrformats+=alpha                " added 20240212: to increase sequences of alpha chars
 
-" added 20240212
-" to increase sequences of alpha chars
-set nrformats+=alpha
+" ADDED 20210308
+" wildmenu and wildmode are used for command line completion.
+" the command line is "expanded" vertically with a list of all the
+" options available on your machine displayed in columns and an
+" horizontal strip that you can navigate with <Tab> (forward) and
+" <S-Tab> (backward).
+set wildmenu
+set wildmode=list:longest,full
 
-" added 20231117: fix for disapearing bg color when scrolling!
-let &t_ut=''
-
+syntax on
+filetype plugin indent on           "20240913
+let &t_ut=''                        " added 20231117: fix for disapearing bg color when scrolling!
 runtime! ftplugin/man.vim           " added 20221129: load man page into new split -- command 'Man ls' ...
 
-" ------------ MOUSE DISPLAY SETTING --------------------------
-" In many terminal emulators the mouse works just fine, thus enable it.
+" ============= OTHER SETTINGS ==============================================================================
+
+" added 20231110
+source ~/.vim/my-vimrc-includes/align.vim
+
+" --- MOUSE DISPLAY SETTING ---
 if has('mouse')
 	set mouse=a
 endif
 
 
-" ------------ TAB CHARACTER DISPLAY --------------------------
+" --- TAB CHARACTER DISPLAY ---
 " method 2:
 " set listchars=tab:\|\ 
 
@@ -100,57 +106,19 @@ nnoremap <space>, :set listchars-=space:⋅ <CR>
 "	
 "	nnoremap <F9> :call ToggleListCharsSpace() <CR>
 
-" ----------------- PYTHON SYNTAX HIGHLIGHT -------------------
+" === PYTHON SETTINGS ===
+autocmd Filetype python setlocal noexpandtab
+
+" --- PYTHON SYNTAX HIGHLIGHT ---
 " let python_highlight_all = 1
 
-" ----------------- LIGHTLINE STATUSBAR SETUP -----------------
+" --- LIGHTLINE STATUSBAR SETUP ---
 " added from: https://github.com/itchyny/lightline.vim
 " git clone https://github.com/itchyny/lightline.vim ~/.vim/pack/plugins/start/lightline
 " change 20220922 colorscheme 'wombat' to 'dracula'
 " let g:lightline = {'colorscheme': 'dracula'}
 
-" ------ 20240115 catpucin_ theme for lightline ---------------
-let g:lightline = {'colorscheme': 'catppuccin_mocha'}
-
-
-" ----------------- SYNTAX SETUP MAPPINGS ----------------------
-noremap ,stb :so ~/.vimrc <bar> :set syntax=bash<CR>
-noremap ,stz :so ~/.vimrc <bar> :set syntax=zig<CR>
-noremap ,stp :so ~/.vimrc <bar> :set syntax=python<CR>
-noremap ,stc :so ~/.vimrc <bar> :set syntax=c<CR>
-noremap ,stj :so ~/.vimrc <bar> :set syntax=java<CR>
-
-" ----------------- ABBREVIATIONS 01 ---------------------------
-ab sbng #! /usr/bin/env bash<cr><tab>
-ab pt3 #! /usr/bin/env python3<cr># -*- coding: utf-8 -*-<cr><cr><esc>:so ~/.vimrc | :set syntax=python
-ab sout System.out.println(
-ab zst const std = @import("std");<cr><cr>pub fn main() !void {<cr>const out = std.io.getStdOut().writer();<cr>const in = std.io.getStdiIn().reader();<cr><cr>try out.print("I'm Alive!\n", .{});<cr><cr>}<cr><esc>:so ~/.vimrc | :set syntax=zig
-
-" ----------------- ENCLOSING BRACKETS/SQUARE/CURLY ------------
-inoremap ${{ ${}<ESC>hli
-inoremap {{ {}<ESC>hli
-inoremap (( ()<ESC>hli
-inoremap [[ []<ESC>hli
-inoremap [[[ [[]]<ESC>hli
-
-" ----------------- ADD/REMOVE QUOTES AROUND WORD --------------
-" Quote a word consisting of letters from iskeyword.
-nnoremap <silent> ,dq :call Quote('"')<CR>
-nnoremap <silent> ,sq :call Quote("'")<CR>
-nnoremap <silent> ,uq :call UnQuote()<CR>
-function! Quote(quote)
-	normal mz
-	exe 's/\(\k*\%#\k*\)/' . a:quote . '\1' . a:quote . '/'
-	normal `zl
-endfunction
-
-function! UnQuote()
-	normal mz
-	exe 's/["' . "'" . ']\(\k*\%#\k*\)[' . "'" . '"]/\1/'
-	normal `z
-endfunction
-
-" ------------------ TOGGLE NUMBER/RELTIVENUMBER ---------------
+" --- TOGGLE NUMBER/RELTIVENUMBER ---
 " <ctrl+1> to toggle between just number and number+relativenumber
 " from: https://superuser.com/questions/339593/vim-toggle-number-with-relativenumber
 "Relative with start point or with line number or absolute number lines
@@ -170,101 +138,73 @@ endfunction
 nnoremap ,n :call NumberToggle()<CR>
 
 
-" ------------------ SWITCH COLORSCHEMES - PREVIEV -------------
-" source ~/.vim/my-vimrc-include/switch-colorschemes.vim
+" --- VIM-LSP ---
+" added 20240913
+function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+endfunction
 
-" ------------------ SONOKAI COLOR THEME -----------------------
-" source ~/.vim/my-vimrc-include/sonokai-theme-include.vim
+augroup lsp_install
+    au!
+    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
 
-" ------------------ DRACULA COLOR THEME -----------------------
-" source ~/.vim/my-vimrc-include/dracula-theme-include.vim
 
-" ----------------- DRACULA COLOR THEME (NEW) ------------------
-" ADDED 20210127
-" from: https://draculatheme.com/vim
-" 
-" Install (Vim):
-" These are the default instructions using Vim 8's |packages| feature. See sections below, if you use other plugin managers.
-"     Create theme folder (in case you don't have yet):
-" mkdir -p ~/.vim/pack/themes/start
-" If you use vim 8.0 (and not 8.2), you may need to use ~/.vim/pack/themes/opt instead.
-"     Navigate to the folder above:
-" cd ~/.vim/pack/themes/start
-"     Clone the repository using the "dracula" name:
-" git clone https://github.com/dracula/vim.git dracula
-"     Create configuration file (in case you don't have yet):
-" touch ~/.vimrc
-"     Edit the ~/.vimrc file with the following content:
-" packadd! dracula
-" syntax enable
+" --- FZF ---
+set rtp+=/usr/bin/fzf
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+
+" --- ALE ---
+let g:ale_enabled = 0
+" colorscheme codedark
+" colorscheme nord
 " colorscheme dracula
-" ---
-" literal:
-""" packadd! dracula
-""" syntax enable
-""" colorscheme dracula
+" hi Normal ctermbg=234
 
-" added 20220922 to correct right background for Dracula CS
-" hi Normal ctermbg='282a36'
-" hi Normal guibg='#282a36'
+" --- RAINBOW ---
+" enable Rainbow globally 20210813
+" let g:rainbow_active = 1
+
+" --- CROSSHAIR LOCATION ---
+hi ColorColumn ctermbg=232 guibg='#3F4354'
+set cursorline
+set cursorcolumn
+hi CursorColumn cterm=NONE ctermbg=232 guifg=NONE guibg='#3F4354'
+hi CursorLine cterm=NONE ctermbg=232 guifg=NONE guibg='#3F4354'
+" staro:
+" hi CursorColumn cterm=NONE ctermbg=red ctermfg=white
+" hi CursorColumn cterm=NONE ctermbg=NONE ctermfg=red
+" hi CursorLine cterm=NONE cterm=underline ctermbg=NONE
+" hi CursorLine guibg=grey16 guifg=NONE
+" hi CursorLine guibg=royalblue4 guifg=NONE
+" hi CursorColumn guibg=royalblue4 guifg=NONE
+" hi CursorLine guibg='#181a1b' guifg=NONE
+" hi CursorLine ctermbg=NONE cterm=underline term=NONE guifg=NONE guibg=NONE
+" hi CursorColumn cterm=NONE term=NONE guifg=NONE guibg=NONE
+" hi CursorColumn cterm=NONE ctermfg=NONE ctermbg=232
+" hi CursorLine cterm=NONE cterm=underline ctermbg=NONE
+" hi CursorColumn guifg=NONE guibg='#5f5f87'
+
+" --- CUSTOM COLOR SETTINGS FOR tab AND space CHARS ---
+" 20240116
+:hi Whitespacechar ctermfg=DarkGray
+:hi Tabspacechar   ctermfg=DarkGray
+:match Whitespacechar / \+$/
+:match Tabspacechar /\t/
+
 " hi Normal guibg='#222430'
+" hi Normal guibg='#231e2e'
+" hi Normal guibg='#201d26'
+" hi Normal guibg='#18151f' " very dark
+" hi Normal guibg='#191926'
+hi Normal guibg='#222229'
 
-
-" ----------------- CUSTOM MAPPINGS ---------------------------------
-let mapleader = " "
-
-" ADDED 20210226
-" search for [12] or [123] troughout a file 
-" and ask to deete it --> maped to ,d <comma+d> 
-nnoremap ,d :%s/\[\d\+]//gc
-nnoremap ,c i<code><CR></code><CR><ESC>kki
-
-" ---
-" ADDED 20210308
-" wildmenu and wildmode are used for command line completion.
-" the command line is "expanded" vertically with a list of all the
-" options available on your machine displayed in columns and an
-" horizontal strip that you can navigate with <Tab> (forward) and
-" <S-Tab> (backward).
-set wildmenu
-set wildmode=list:longest,full
-
-" added 20210622 (MY PRECIOUS!!)
-" comment/uncomment visually selected block
-" updated (en) 20221117
-vnoremap ,pt :s@\(^\s*\)\(.*\)@\1# \2@<CR>
-vnoremap ,pu :s@\(^\s*\)# @\1@<CR>
-vnoremap ,jv :s@\(^\s*\)\(.*\)@\1// \2@<CR>
-vnoremap ,ju :s@\(^\s*\)// @\1@<CR>
-
-" added 20211101: C-style comment out visual block
-" updated (en) 20221117
-vnoremap ,ct :s/^/ * /<CR>gv"xdO/*<CR><ESC>0C */<ESC>k"xp<CR>
-vnoremap ,cu :s/^\s*\* //<CR>gv"xdddkdd"xP<CR>
-
-" html comment/uncomment
-vnoremap ,ht :s/\%V\(.*\)\%V/<!-- \1 -->/<CR>
-vnoremap ,hu :s/\%V<!-- \(.*\) -->\%V/\1/<CR>
-" ---
-"
-vnoremap ,<space> :s@^.\{1,2\} @@<CR>
-vnoremap ,t :s/\(\t\+\) \+/\1/g<CR>
-
-" added 20210629 (d) - enclose visual selection
-" between <code></code> tags
-vnoremap ,cd di<code><CR></code><CR><ESC>kP?<code><CR>:s@.*\(<code>\)@\1@<CR>/</code><CR>:s@.*\(</code>\)@\1@<CR>j
-
-" added 20211105 (en): shift tab and remove spaces
-vnoremap ,rr >gv:s/\(\t\+\) \+/\1/g<CR>
-
-" added 20240326 (en)
-" clone current line or selection and:
-"        - normal mode: paste it under current line
-"        - visual selection: paste it over current line, but select lower selection block
-noremap <leader>c yyp
-vnoremap <leader>c yPgv
-
-" ----------- PLUGGINS (vim-plug) -----------------------------
+" =========== PLUGGINS (vim=plug) ===========================================================================
 call plug#begin('~/.vim/plugged')
 Plug 'preservim/nerdtree'
 Plug 'francoiscabrol/ranger.vim'
@@ -295,134 +235,56 @@ Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
-" 20240913
-" ============================================================
-" vim-lsp
-function! s:on_lsp_buffer_enabled() abort
-    setlocal omnifunc=lsp#complete
-endfunction
-
-augroup lsp_install
-    au!
-    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
-    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-augroup END
-"
-" ============================================================
-"
-" --------------- FZF ----------------------------------------
-set rtp+=/usr/bin/fzf
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
-
-
-" --------------- ALE ----------------------------------------
-let g:ale_enabled = 0
-" colorscheme codedark
-" colorscheme nord
-" colorscheme dracula
-" hi Normal ctermbg=234
-
-" -------------- RAINBOW -------------------------------------
-" enable Rainbow globally 20210813
-" let g:rainbow_active = 1
-
-" -------------- NETRW WINDOW SETUP --------------------------
-" 20210813: vim's file explorer (Netrw) in left column of size 30 (close with :bd)
-nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
-
-" ------------- RANGER ---------------------------------------
-" ranger settings 20210813
-nnoremap <leader>r :Ranger<CR>
-let g:ranger_map_keys = 0
-
-" ------------- SEMICOLON MAPPINGS ---------------------------
-" mapping to replace spaces and semicolon or just spaces
-" at the end of the line:
-" effect: single ; at the end of text remains
-nnoremap <leader>s :s/ *;*$/;/<esc>j
-nnoremap <leader>x vllc/* <ESC>A */<ESC>
-
-
-" ------------- C-ABBREVIATIONS ------------------------------
-" update 20250321
-ab cstv #include <stdio.h><CR>#include <string.h><CR><CR><CR>int main(void)<right> {<CR><CR><CR><CR><CR>return 0;<CR>}<ESC>4ki<TAB>printf("I'm Alive");<ESC>:so ~/.vimrc | :set syntax=c
-ab cst #include <stdio.h><CR>#include <string.h><CR><CR><CR>int main(int argc, char **argv)<right> {<CR><CR><CR><CR><CR>return 0;<CR>}<ESC>4ki<TAB>printf("I'm Alive");<ESC>:so ~/.vimrc | :set syntax=c
-
-" break line at position 110 chars
-" 0110lbikba
-nnoremap ,b 0110lbi<BS><CR><ESC>
-
-
-" move entire lines around (from: https://vim.fandom.com/wiki/Moving_lines_up_or_down)
-" to enter Alt+j key: Ctrl+v Alt+j in insert mode!
-" nnoremap j :m.+1<CR>==
-" nnoremap k :m.-2<CR>==
-" inoremap j <ESC>:m.+1<CR>==gi
-" inoremap j <ESC>:m.-2<CR>==gi
-" vnoremap j :m'>+1<CR>gv=gv
-" vnoremap k :m'<-2<CR>gv=gv
-"
-
-" ------------- MULTIPLE LINES MOVE --------------------------
-" move entire lines UP an d DOWN
-" to enter instead of Alt key --> SPACE key
-nnoremap <Space>j :m.+1<CR>==
-nnoremap <Space>k :m.-2<CR>==
-vnoremap <Space>j :m'>+1<CR>gv=gv
-vnoremap <Space>k :m'<-2<CR>gv=gv
-"
-" ------------- CMD-PROMT SYMBOL REPLACEMENT -----------------
-nnoremap ,4 :s/^\s*/$> /<CR> :nohl <CR><CR>
-vnoremap ,4 :s/^\s*/$> /<CR> :nohl <CR><CR>
-nnoremap <Space>4 :s/^\$ /$> /<CR> :nohl <CR><CR>
-vnoremap <Space>4 :s/^\$ /$> /<CR> :nohl <CR><CR>
-
-" ------------- NEERDTREE ------------------------------------
-nnoremap <leader>n :NERDTree<CR>
-
-" ------------- FZF ------------------------------------------
-nnoremap <leader>ff :FZF<CR>
-nnoremap <leader>fe :FZF -e<CR>
-
-
-" abbreviations fo java 20220830
-iab psvm <TAB>public static void main(String[<Right><Space>args<Right><Space>{<CR><CR><CR><Right><Space>// end main<ESC>kki<CR>
-inoremap sout System.out.println("");<ESC>hhi
-iab inm if __name__ == '__main__':<CR>
-
-" added 20220926
-" replaces tabs to 4 spaces
-" whole lines -> <shift+v>
-" block       -> <ctrl+v>
-vnoremap <C-t> :s/\%V\t/    /g<CR>
-
-" added 20231006
-" removes lagging when editing .h files
-nnoremap <leader>st :syntax off<CR>:syntax on<CR>
-
-" 20220929
-" replace '//text ...' with '// text ...'
-noremap <Space>s :%s/\/\/\(\w.*\)/\/\/ \1/<CR>
-
+" vim-move plugin
 " added 20221121
-" " vim-move plugin
 let g:move_key_modifier = 'C'            " *** 20221121 (d)
 let g:move_key_modifier_visualmode = 'S' " *** 20221121 (d)
 
-" added 20231110
-source ~/.vim/my-vimrc-includes/align.vim
+" ================== COLORSCHEMES ==============================
 
-autocmd Filetype python setlocal noexpandtab
+" --- 20240115 catpucin_ theme for lightline ---
+let g:lightline = {'colorscheme': 'catppuccin_mocha'}
 
-" 20240115 installed "https://github.com/catppuccin/vim"
-" instructions in README.md file
+" --- SWITCH COLORSCHEMES ---
+" source ~/.vim/my-vimrc-include/switch-colorschemes.vim
 
+" --- SONOKAI COLOR THEME ---
+" source ~/.vim/my-vimrc-include/sonokai-theme-include.vim
 
-" -------------- FINAL COLORSCHEME SETTING --------------------
-" -------------- (if everything else fails) -------------------
+" --- DRACULA COLOR THEME ---
+" source ~/.vim/my-vimrc-include/dracula-theme-include.vim
+
+" --- DRACULA COLOR THEME (NEW) ---
+" ADDED 20210127
+" from: https://draculatheme.com/vim
+" Install (Vim):
+" These are the default instructions using Vim 8's |packages| feature. See sections below, if you use other plugin managers.
+"     Create theme folder (in case you don't have yet):
+" mkdir -p ~/.vim/pack/themes/start
+" If you use vim 8.0 (and not 8.2), you may need to use ~/.vim/pack/themes/opt instead.
+"     Navigate to the folder above:
+" cd ~/.vim/pack/themes/start
+"     Clone the repository using the "dracula" name:
+" git clone https://github.com/dracula/vim.git dracula
+"     Create configuration file (in case you don't have yet):
+" touch ~/.vimrc
+"     Edit the ~/.vimrc file with the following content:
+" packadd! dracula
+" syntax enable
+" colorscheme dracula
+" ---
+" literal:
+""" packadd! dracula
+""" syntax enable
+""" colorscheme dracula
+
+" added 20220922 to correct right background for Dracula CS
+" hi Normal ctermbg='282a36'
+" hi Normal guibg='#282a36'
+" hi Normal guibg='#222430'
+
+" --- FINAL COLORSCHEME SETTING ---
+" --- (if everything else fails) ---
 " local colorscheme settings:
 " colorscheme  simple-dark
 " colorscheme  wombat256mod
@@ -433,54 +295,229 @@ autocmd Filetype python setlocal noexpandtab
 " let g:monochrome_italic_comments = 1
 " colorscheme monochrome
 
+" 20240115 installed "https://github.com/catppuccin/vim"
+" instructions in README.md file
 colorscheme catppuccin_mocha
 
-" 20240116
-" custom color settings for TAB and SPACE chars
-:hi Whitespacechar ctermfg=DarkGray
-:hi Tabspacechar   ctermfg=DarkGray
-:match Whitespacechar / \+$/
-:match Tabspacechar /\t/
+" ================= ABBREVIATIONS ===========================================================================
+ab sbng #! /usr/bin/env bash<cr><tab>
+ab pt3 #! /usr/bin/env python3<cr># -*- coding: utf-8 -*-<cr><cr><esc>:so ~/.vimrc | :set syntax=python
+ab sout System.out.println(
+ab zst const std = @import("std");<cr><cr>pub fn main() !void {<cr>const out = std.io.getStdOut().writer();<cr>const in = std.io.getStdiIn().reader();<cr><cr>try out.print("I'm Alive!\n", .{});<cr><cr>}<cr><esc>:so ~/.vimrc | :set syntax=zig
 
-" hi Normal guibg='#222430'
-" hi Normal guibg='#231e2e'
-" hi Normal guibg='#201d26'
-" hi Normal guibg='#18151f' " very dark
-" hi Normal guibg='#191926'
-hi Normal guibg='#222229'
+" --- C ABBREVIATIONS ---
+" update 20250321
+ab cstv #include <stdio.h><CR>#include <string.h><CR><CR><CR>int main(void)<right> {<CR><CR><CR><CR><CR>return 0;<CR>}<ESC>4ki<TAB>printf("I'm Alive");<ESC>:so ~/.vimrc | :set syntax=c
+ab cst #include <stdio.h><CR>#include <string.h><CR><CR><CR>int main(int argc, char **argv)<right> {<CR><CR><CR><CR><CR>return 0;<CR>}<ESC>4ki<TAB>printf("I'm Alive");<ESC>:so ~/.vimrc | :set syntax=c
+
+" --- ABBREVIATIONS AND MAPPINGS FOR JAVA ---
+"added 20220803
+iab psvm <TAB>public static void main(String[<Right><Space>args<Right><Space>{<CR><CR><CR><Right><Space>// end main<ESC>kki<CR>
+inoremap sout System.out.println("");<ESC>hhi
+iab inm if __name__ == '__main__':<CR>
+
+" ================= MAPPINGS ================================================================================
+let mapleader = " "
+
+" --- ENCLOSING BRACKETS/SQUARE/CURLY ---
+inoremap ${{ ${}<ESC>hli
+inoremap {{ {}<ESC>hli
+inoremap (( ()<ESC>hli
+inoremap [[ []<ESC>hli
+inoremap [[[ [[]]<ESC>hli
 
 
-" ------------- CROSSHAIR LOCATION ---------------------------
-set cursorline
-set cursorcolumn
-" hi CursorColumn cterm=NONE ctermfg=NONE ctermbg=232
-" hi CursorLine cterm=NONE cterm=underline ctermbg=NONE
-" hi CursorColumn guifg=NONE guibg='#5f5f87'
-hi CursorColumn cterm=NONE ctermbg=232 guifg=NONE guibg='#3F4354'
-hi CursorLine cterm=NONE ctermbg=232 guifg=NONE guibg='#3F4354'
+" --- ADD/REMOVE QUOTES AROUND WORD ---
+" Quote a word consisting of letters from iskeyword.
+nnoremap <silent> ,dq :call Quote('"')<CR>
+nnoremap <silent> ,sq :call Quote("'")<CR>
+nnoremap <silent> ,uq :call UnQuote()<CR>
+function! Quote(quote)
+	normal mz
+	exe 's/\(\k*\%#\k*\)/' . a:quote . '\1' . a:quote . '/'
+	normal `zl
+endfunction
 
+function! UnQuote()
+	normal mz
+	exe 's/["' . "'" . ']\(\k*\%#\k*\)[' . "'" . '"]/\1/'
+	normal `z
+endfunction
+
+
+" --- SEARCH AND REPLACE [12] AND [123] WITH CONFIRMATION ---
+" added 20210226
+" search for [12] or [123] troughout a file
+" and ask to deete it --> maped to ,d <comma+d>
+nnoremap ,d :%s/\[\d\+]//gc
+
+
+" --- COMMENT/UNCOMMENT VISUALLY SELECTED BLOCK ---
+" added 20210622
+" updated (en) 20221117
+vnoremap ,pt :s@\(^\s*\)\(.*\)@\1# \2@<CR>
+vnoremap ,pu :s@\(^\s*\)# @\1@<CR>
+vnoremap ,jv :s@\(^\s*\)\(.*\)@\1// \2@<CR>
+vnoremap ,ju :s@\(^\s*\)// @\1@<CR>
+
+"
+" --- c-STYLE COMMENT OUT VISUAL BLOCK ---
+" added 20211101
+" updated (en) 20221117
+vnoremap ,ct :s/^/ * /<CR>gv"xdO/*<CR><ESC>0C */<ESC>k"xp<CR>
+vnoremap ,cu :s/^\s*\* //<CR>gv"xdddkdd"xP<CR>
+
+
+" --- HTML COMMENT/UNCOMMENT ---
+vnoremap ,ht :s/\%V\(.*\)\%V/<!-- \1 -->/<CR>
+vnoremap ,hu :s/\%V<!-- \(.*\) -->\%V/\1/<CR>
+
+
+" --- REMOVE LEADING CHARS WITH SPACE IN VISUAL MODE ---
+vnoremap ,<space> :s@^.\{1,2\} @@<CR>
+
+
+" --- REPLACE MULTIPLE <tab>S WITH TRAILING <space> WITH <tab>S ONLY ---
+vnoremap ,t :s/\(\t\+\) \+/\1/g<CR>
+
+
+" --- ENCLOSE VISUAL SELECTION BETWEEN <CODE></CODE> TAGS ---
+" added 20210629
+vnoremap ,cd di<code><CR></code><CR><ESC>kP?<code><CR>:s@.*\(<code>\)@\1@<CR>/</code><CR>:s@.*\(</code>\)@\1@<CR>j
+
+
+" --- INSERT <CODE></CODE> AND PUT CURSOR INSIDE TO START TYPING OR PASTE CONTENTS ---
+" added 20210629
+nnoremap ,c i<code><CR></code><CR><ESC>kki
+
+" --- SHIFT TAB AND REMOVE SPACES ---
+" added 20211105
+vnoremap ,rr >gv:s/\(\t\+\) \+/\1/g<CR>
+
+" --- CLONE CURRENT LINE OR SELLECTION ---
+" added 20240326
+" clone current line or selection and:
+"        - normal mode: paste it under current line
+"        - visual selection: paste it over current line, but select lower selection block
+noremap <leader>c yyp
+vnoremap <leader>c yPgv
+
+
+" --- SYNTAX SETUP MAPPINGS ---
+noremap ,stb :so ~/.vimrc <bar> :set syntax=bash<CR>
+noremap ,stz :so ~/.vimrc <bar> :set syntax=zig<CR>
+noremap ,stp :so ~/.vimrc <bar> :set syntax=python<CR>
+noremap ,stc :so ~/.vimrc <bar> :set syntax=c<CR>
+noremap ,stj :so ~/.vimrc <bar> :set syntax=java<CR>
+
+
+" --- NETRW WINDOW SETUP ---
+" 20210813: vim's file explorer (Netrw) in left column of size 30 (close with :bd)
+nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
+
+
+" --- RANGER ---
+" ranger settings 20210813
+nnoremap <leader>r :Ranger<CR>
+let g:ranger_map_keys = 0
+
+
+" --- SEMICOLON MAPPINGS ---
+" mapping to replace spaces and semicolon or just spaces
+" at the end of the line:
+" effect: single ; at the end of text remains
+nnoremap <leader>s :s/ *;*$/;/<esc>j
+nnoremap <leader>x vllc/* <ESC>A */<ESC>
+
+
+" --- BREAK LINE AT POSITION 110 CHARS ---
+" 0110lbikba
+nnoremap ,b 0110lbi<BS><CR><ESC>
+
+
+" --- MOVE ENTIRE LINES AROUND ---
+" from: https://vim.fandom.com/wiki/Moving_lines_up_or_down
+" to enter Alt+j key: Ctrl+v Alt+j in insert mode!
+" nnoremap j :m.+1<CR>==
+" nnoremap k :m.-2<CR>==
+" inoremap j <ESC>:m.+1<CR>==gi
+" inoremap j <ESC>:m.-2<CR>==gi
+" vnoremap j :m'>+1<CR>gv=gv
+" vnoremap k :m'<-2<CR>gv=gv
+
+
+" --- MULTIPLE LINES MOVE ---
+" move entire lines UP and DOWN
+" to enter instead of Alt key --> SPACE key
+nnoremap <Space>j :m.+1<CR>==
+nnoremap <Space>k :m.-2<CR>==
+vnoremap <Space>j :m'>+1<CR>gv=gv
+vnoremap <Space>k :m'<-2<CR>gv=gv
+
+
+" --- CMD PROMT SYMBOL REPLACEMENT ---
+nnoremap ,4 :s/^\s*/$> /<CR> :nohl <CR><CR>
+vnoremap ,4 :s/^\s*/$> /<CR> :nohl <CR><CR>
+nnoremap <Space>4 :s/^\$ /$> /<CR> :nohl <CR><CR>
+vnoremap <Space>4 :s/^\$ /$> /<CR> :nohl <CR><CR>
+
+
+" --- NEERDTREE ---
+nnoremap <leader>n :NERDTree<CR>
+
+
+" --- FZF ---
+nnoremap <leader>ff :FZF<CR>
+nnoremap <leader>fe :FZF -e<CR>
+
+
+" --- REPLACES TABS TO 4 SPACES ---
+" added 20220926
+" whole lines -> <shift+v>
+" block       -> <ctrl+v>
+vnoremap <C-t> :s/\%V\t/    /g<CR>
+
+
+" --- REMOVES LAGGING WHEN EDITING *.h FILES ---
+" added 20231006
+nnoremap <leader>st :syntax off<CR>:syntax on<CR>
+
+
+" --- INSERT <SPACE> BETWEEN // AND TEXT ---
+" 20220929
+" replace '//text ...' with '// text ...'
+noremap <Space>s :%s/\/\/\(\w.*\)/\/\/ \1/<CR>
+
+
+" --- MAP ctrl+x ctrl+f to ctrl+f ---
 inoremap <C-f> <C-x><C-f>
 
+
+" --- COPY HTTP LINK INTO THE [NUMBER] HOLDER FOR THE LINK AFTER LYXD_ED DOCUMENT ---
 " 20250515
-" copy http link into the [number] holder for the link after lyxd-ed document
 " 1 - go inside '[' ']'
 " 2 - <c-o> to go to coresponding link at the bottom
 " 3 - pres ,lc to do the magic ...
 noremap ,lc fhvg_y<C-o>ci[<C-r>0<ESC>
 
+
+" --- OPEN ALL BUFFERS INTO SEPARATE TABS ---
 " 20251114
-" open all buffers into separate tabs
 " map ,bt :bufdo tab split<CR><CR>
 nnoremap ,bt :bufdo tab split<CR><CR>
 
+
+" --- TABLE ROW DIVIDERS ---
 " 20251127
-" table row dividers
 noremap ,tr 0yyjp}P<ESC>j
 
+
+" --- MOVE '{' AFTER 'FUNC() ' ---
 " 20251205
-" move '{' after 'func() '
 noremap <space>f jddkA {<ESC>
 
+
+" --- SET SYNTAX MAPPINGS ---
 " 20251210
 noremap <space>ss :set syntax=<CR>
 noremap <space>ssc :set syntax=c<CR>
@@ -490,47 +527,63 @@ noremap <space>ssp :set syntax=python<CR>
 noremap <space>ssg :set syntax=go<CR>
 noremap <space>ssh :set syntax=sh<CR>
 
+
+" --- INDENT/FORMAT main{} BLOCK ---
 " 20251223
 " select whole 'main() { ... }' block, formate it with '=' and
 " replace 5 spaces with tabs
 nnoremap <space>= 0Vf{%=gv:s/\(\t\+\) \+/\1/g<CR>
 
+
+" --- INITIAL CONFIG SOURCE AND SYNTAX SETUP ---
 " 20260114
 " nnoremap <space>v :so ~/.vimrc <BAR> set syntax=c<CR>
 nnoremap <space>v :so ~/.vimrc <BAR> set syntax=c <BAR> :noh<CR>
 
+
+" --- MOVE LINE UNDER THE CURSOR INSIDE [] ---
 " 20260210
 " move line under the cursor inside []
 " move selected text into []
 nnoremap ,sb 0vg_xi[<c-r>"]<esc>j<cr>
 vnoremap ,sb xi[]<ESC>h""p<ESC>
 
-" 20260210 change buffer to file from list
-" from:
-" vim-working-with-buffers-multif-5ppp-20260210.txt
+"
+" --- CHANGE BUFFER TO FILE FROM LIST ---
+" 20260210
+" from: vim-working-with-buffers-multif-5ppp-20260210.txt
 " https://builtin.com/articles/working-with-buffers-in-vim
 nnoremap <Leader>b :buffers<CR>:buffer<Space>
 
+" --- SEARCH IN VIM'S FILE EDIT HISTROY AND OPEN IT FOR EDIT/VIEW ---
 " 20260211
-" search in vim's file edit histroy and open it for edit/view
 " must enter colon ':' and add a line number
 nnoremap <leader>oo :oldfiles<CR>e #<
 
+
+" --- REPLACE LEADING 4SPACES TO TABS ---
 " 20260219 replace leading 4spaces to tabs
 nnoremap <space>t :%s/\(^\s*\)\@<=    /\t/g<CR><BAR>:noh<CR>
 vnoremap <space>t :s/\(^\s*\)\@<=    /\t/g<CR><BAR>:noh<CR>
 
+
+" --- REPLACE SINGLE QUOTE INSIDE WORDS WITH APOSTROPHE COMMAND ---
 " 20260311
-" replace single quote inside words with apostrophe command:
 nnoremap <space>9 :%s/\([[:alpha:]]\)'\([[:alpha:]]\)/\1´\2/g<CR><BAR>:noh<CR>
 
+
+" --- RETAB VISUAL SELLECTION ---
 " 20260317
-" retab visual sellection
 vnoremap ,rt :retab!<CR>
 
+
+" --- MOVE SELECTED TEXT BETWEEN '', OR BETWEEN "" ---
 " 20260317
-" move selected text between '', or between ""
 vnoremap <space>sq xi''<ESC>h""p<ESC>
 vnoremap <space>dq xi""<ESC>h""p<ESC>
-"
-"
+
+
+" 20240310
+" TO ACCEPT TERMINAL BACKGROUND IMAGE kitty.conf
+hi Normal guibg=NONE ctermbg=NONE
+
