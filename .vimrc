@@ -532,7 +532,7 @@ noremap <space>ssh :set syntax=sh<CR>
 " 20251223
 " select whole 'main() { ... }' block, formate it with '=' and
 " replace 5 spaces with tabs
-nnoremap <space>= 0Vf{%=gv:s/\(\t\+\) \+/\1/g<CR>
+nnoremap <space>0 0Vf{%=gv:s/\(\t\+\) \+/\1/g<CR>
 
 
 " --- INITIAL CONFIG SOURCE AND SYNTAX SETUP ---
