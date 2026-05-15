@@ -1,3 +1,15 @@
+#########
+# HISTORY
+#########
+shopt -s histappend
+export HISTCONTROL=erasedups
+export HISTCONTROL=ignoreboth
+export HISTSIZE=100000
+export HISTFILESIZE=5000
+# export HISTIGNORE=$'[ \t]*:ll:la:pwd:qtm:less*:Brth*:pddr:updts:countries*:/d/ext*:/e/ext*:o23*:o22*:drpbx-rclone*::mcm:opnu:opnw:sudo:su'
+export HISTTIMEFORMAT='%F %T '
+
+
 # enable globstar (** matching)
 shopt -s globstar
 
