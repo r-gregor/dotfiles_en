@@ -300,7 +300,8 @@ let g:lightline = {'colorscheme': 'catppuccin_mocha'}
 colorscheme catppuccin_mocha
 
 " ================= ABBREVIATIONS ===========================================================================
-ab sbng #! /usr/bin/env bash<cr><tab>
+" ab sbng #! /usr/bin/env bash<cr><tab>
+ab sbng #! /usr/bin/env bash<cr># fname: <c-r>%<cr># v1_[]<cr># ---<cr>
 ab pt3 #! /usr/bin/env python3<cr># -*- coding: utf-8 -*-<cr><cr><esc>:so ~/.vimrc | :set syntax=python
 ab sout System.out.println(
 ab zst const std = @import("std");<cr><cr>pub fn main() !void {<cr>const out = std.io.getStdOut().writer();<cr>const in = std.io.getStdiIn().reader();<cr><cr>try out.print("I'm Alive!\n", .{});<cr><cr>}<cr><esc>:so ~/.vimrc | :set syntax=zig
