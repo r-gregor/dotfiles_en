@@ -30,6 +30,8 @@ set path+=**
 set textwidth=110                   " so gqq works on splitting long lines at 110-th position -- 20240826
 set viminfo='100,f1                 "20260210: remember local an d global marks for 100 files
 set nrformats+=alpha                " added 20240212: to increase sequences of alpha chars
+set formatoptions-=t
+set formatoptions+=l
 
 " ADDED 20210308
 " wildmenu and wildmode are used for command line completion.
