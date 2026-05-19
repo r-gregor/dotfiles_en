@@ -590,3 +590,8 @@ vnoremap <space>dq xi""<ESC>h""p<ESC>
 " TO ACCEPT TERMINAL BACKGROUND IMAGE kitty.conf
 hi Normal guibg=NONE ctermbg=NONE
 
+" 20260519
+" remove '[...]' in current line
+nnoremap ,ds :s/\[.\+\]//g<CR>:noh<CR>
+vnoremap ,ds :s/\[.\+\]//g<CR>:noh<CR>
+
