@@ -466,7 +466,8 @@ vnoremap <Space>4 :s/^\$ /$> /<CR> :nohl <CR><CR>
 
 
 " --- NEERDTREE ---
-nnoremap <leader>n :NERDTree<CR>
+" nnoremap <leader>n :NERDTree<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
 
 
 " --- FZF ---
