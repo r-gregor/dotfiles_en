@@ -350,8 +350,7 @@ endfunction
 
 " --- SEARCH AND REPLACE [12] AND [123] WITH CONFIRMATION ---
 " added 20210226
-" search for [12] or [123] troughout a file
-" and ask to deete it --> maped to ,d <comma+d>
+" search for [12] or [123] troughout a file and ask to deete it --> maped to ,d <comma+d>
 nnoremap ,d :%s/\[\d\+]//gc
 
 
@@ -372,15 +371,16 @@ vnoremap ,cu :s/^\s*\* //<CR>gv"xdddkdd"xP<CR>
 
 
 " --- HTML COMMENT/UNCOMMENT ---
+" html style comment / uncomment visual selection
 vnoremap ,ht :s/\%V\(.*\)\%V/<!-- \1 -->/<CR>
 vnoremap ,hu :s/\%V<!-- \(.*\) -->\%V/\1/<CR>
 
-
 " --- REMOVE LEADING CHARS WITH SPACE IN VISUAL MODE ---
+" ???
 vnoremap ,<space> :s@^.\{1,2\} @@<CR>
 
-
 " --- REPLACE MULTIPLE <tab>S WITH TRAILING <space> WITH <tab>S ONLY ---
+"
 vnoremap ,t :s/\(\t\+\) \+/\1/g<CR>
 
 
