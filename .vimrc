@@ -1,4 +1,4 @@
-" EN: LAST CHANGE 20240421
+" EN: LAST CHANGE 20260807
 "
 " ============ DEFAULT SETTINGS =============================================================================
 set encoding=utf-8
@@ -304,6 +304,7 @@ colorscheme catppuccin_mocha
 " ================= ABBREVIATIONS ===========================================================================
 " ab sbng #! /usr/bin/env bash<cr><tab>
 " ab sbng #! /usr/bin/env bash<cr># fname: <c-r>%<cr># [] v1<cr># ---<cr>
+" updated 20250807: insert datestamp
 ab sbng #! /usr/bin/env bash<cr># fname: <c-r>%<cr># <c-r>=strftime('%Y%m%d')<cr> v1<cr># ---<cr>
 ab pt3 #! /usr/bin/env python3<cr># -*- coding: utf-8 -*-<cr><cr><esc>:so ~/.vimrc | :set syntax=python
 ab sout System.out.println(
@@ -601,7 +602,8 @@ hi Normal guibg=NONE ctermbg=NONE
 nnoremap ,ds :s/\[.\+\]//g<CR>:noh<CR>
 vnoremap ,ds :s/\[.\+\]//g<CR>:noh<CR>
 
-
+" 20260807
+" insert datestamp 'YYYYmmdd'
 nnoremap ,dt "=strftime('%Y%m%d')<cr>P<cr>
 inoremap ,dt <c-r>=strftime('%Y%m%d')<cr>
 vnoremap ,dt <c-r>=strftime('%Y%m%d')<cr>
