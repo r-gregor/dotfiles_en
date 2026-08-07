@@ -303,7 +303,8 @@ colorscheme catppuccin_mocha
 
 " ================= ABBREVIATIONS ===========================================================================
 " ab sbng #! /usr/bin/env bash<cr><tab>
-ab sbng #! /usr/bin/env bash<cr># fname: <c-r>%<cr># [] v1<cr># ---<cr>
+" ab sbng #! /usr/bin/env bash<cr># fname: <c-r>%<cr># [] v1<cr># ---<cr>
+ab sbng #! /usr/bin/env bash<cr># fname: <c-r>%<cr># <c-r>=strftime('%Y%m%d')<cr> v1<cr># ---<cr>
 ab pt3 #! /usr/bin/env python3<cr># -*- coding: utf-8 -*-<cr><cr><esc>:so ~/.vimrc | :set syntax=python
 ab sout System.out.println(
 ab zst const std = @import("std");<cr><cr>pub fn main() !void {<cr>const out = std.io.getStdOut().writer();<cr>const in = std.io.getStdiIn().reader();<cr><cr>try out.print("I'm Alive!\n", .{});<cr><cr>}<cr><esc>:so ~/.vimrc | :set syntax=zig
@@ -600,3 +601,7 @@ hi Normal guibg=NONE ctermbg=NONE
 nnoremap ,ds :s/\[.\+\]//g<CR>:noh<CR>
 vnoremap ,ds :s/\[.\+\]//g<CR>:noh<CR>
 
+
+nnoremap ,dt "=strftime('%Y%m%d')<cr>P<cr>
+inoremap ,dt <c-r>=strftime('%Y%m%d')<cr>
+vnoremap ,dt <c-r>=strftime('%Y%m%d')<cr>
