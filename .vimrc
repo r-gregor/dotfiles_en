@@ -622,6 +622,7 @@ noremap ,mf :set modifiable<CR>
 " change from 'modifiable' to 'nonmodifiable'
 noremap ,nf :set nomodifiable<CR>
 
+" 20260831
 " put sellection inside double or single quotes
 vnoremap 1q c''<esc>hp
 vnoremap 2q c""<esc>hp
