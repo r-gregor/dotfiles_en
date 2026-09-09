@@ -37,7 +37,7 @@ set formatoptions+=l
 " wildmenu and wildmode are used for command line completion.
 " the command line is "expanded" vertically with a list of all the
 " options available on your machine displayed in columns and an
-" horizontal strip that you can navigate with <Tab> (forward) and
+" horizontal strip that you can navigate with <TAB> (forward) and
 " <S-Tab> (backward).
 set wildmenu
 set wildmode=list:longest,full
@@ -91,14 +91,14 @@ set listchars=tab:┊⋅
 " set listchars+=space:⋅
 set listchars+=trail:⋅
 set list
-nnoremap <space>. :set listchars+=space:⋅ <CR>
-nnoremap <space>, :set listchars-=space:⋅ <CR>
+nnoremap <SPACE>. :set listchars+=space:⋅ <CR>
+nnoremap <SPACE>, :set listchars-=space:⋅ <CR>
 
 " 20220513 NOT working!!
 "	let lc1='+=space:⋅'
 "	let lc2='-=space:⋅'
 "	
-"	function ToggleListCharsSpace()
+"	function ToggleListCharsspace()
 "		if &listchars == g:lc1
 "			let &listchars = g:cl2
 "		else
@@ -106,7 +106,7 @@ nnoremap <space>, :set listchars-=space:⋅ <CR>
 "		endif
 "	endfunction
 "	
-"	nnoremap <F9> :call ToggleListCharsSpace() <CR>
+"	nnoremap <F9> :call ToggleListCharsspace() <CR>
 
 " === PYTHON SETTINGS ===
 autocmd Filetype python setlocal noexpandtab
@@ -302,13 +302,13 @@ let g:lightline = {'colorscheme': 'catppuccin_mocha'}
 colorscheme catppuccin_mocha
 
 " ================= ABBREVIATIONS ===========================================================================
-" ab sbng #! /usr/bin/env bash<cr><tab>
-" ab sbng #! /usr/bin/env bash<cr># fname: <c-r>%<cr># [] v1<cr># ---<cr>
+" ab sbng #! /usr/bin/env bash<CR><TAB>
+" ab sbng #! /usr/bin/env bash<CR># fname: <C-R>%<CR># [] v1<CR># ---<CR>
 " updated 20250807: insert datestamp
-ab sbng #! /usr/bin/env bash<cr># fname: <c-r>%<cr># <c-r>=strftime('%Y%m%d')<cr> v1<cr># ---<cr>
-ab pt3 #! /usr/bin/env python3<cr># -*- coding: utf-8 -*-<cr><cr><esc>:so ~/.vimrc | :set syntax=python
+ab sbng #! /usr/bin/env bash<CR># fname: <C-R>%<CR># <C-R>=strftime('%Y%m%d')<CR> v1<CR># ---<CR>
+ab pt3 #! /usr/bin/env python3<CR># -*- coding: utf-8 -*-<CR><CR><ESC>:so ~/.vimrc | :set syntax=python
 ab sout System.out.println(
-ab zst const std = @import("std");<cr><cr>pub fn main() !void {<cr>const out = std.io.getStdOut().writer();<cr>const in = std.io.getStdiIn().reader();<cr><cr>try out.print("I'm Alive!\n", .{});<cr><cr>}<cr><esc>:so ~/.vimrc | :set syntax=zig
+ab zst const std = @import("std");<CR><CR>pub fn main() !void {<CR>const out = std.io.getStdOut().writer();<CR>const in = std.io.getStdiIn().reader();<CR><CR>try out.print("I'm Alive!\n", .{});<CR><CR>}<CR><ESC>:so ~/.vimrc | :set syntax=zig
 
 " --- C ABBREVIATIONS ---
 " update 20250321
@@ -317,7 +317,7 @@ ab cst #include <stdio.h><CR>#include <string.h><CR><CR><CR>int main(int argc, c
 
 " --- ABBREVIATIONS AND MAPPINGS FOR JAVA ---
 "added 20220803
-iab psvm <TAB>public static void main(String[<Right><Space>args<Right><Space>{<CR><CR><CR><Right><Space>// end main<ESC>kki<CR>
+iab psvm <TAB>public static void main(String[<Right><SPACE>args<Right><SPACE>{<CR><CR><CR><Right><SPACE>// end main<ESC>kki<CR>
 inoremap sout System.out.println("");<ESC>hhi
 iab inm if __name__ == '__main__':<CR>
 
@@ -368,7 +368,7 @@ vnoremap ,ju :s@\(^\s*\)// @\1@<CR>
 " --- c-STYLE COMMENT OUT VISUAL BLOCK ---
 " added 20211101
 " updated (en) 20221117
-vnoremap ,ct :s/^/ * /<CR>gv"xdO/*<CR><ESC>0C */<ESC>k"xp<CR>
+vnoremap ,cc :s/^/ * /<CR>gv"xdO/*<CR><ESC>0C */<ESC>k"xp<CR>
 vnoremap ,cu :s/^\s*\* //<CR>gv"xdddkdd"xP<CR>
 
 
@@ -377,11 +377,11 @@ vnoremap ,cu :s/^\s*\* //<CR>gv"xdddkdd"xP<CR>
 vnoremap ,ht :s/\%V\(.*\)\%V/<!-- \1 -->/<CR>
 vnoremap ,hu :s/\%V<!-- \(.*\) -->\%V/\1/<CR>
 
-" --- REMOVE LEADING CHARS WITH SPACE IN VISUAL MODE ---
+" --- REMOVE LEADING CHARS WITH space IN VISUAL MODE ---
 " ???
-vnoremap ,<space> :s@^.\{1,2\} @@<CR>
+vnoremap ,<SPACE> :s@^.\{1,2\} @@<CR>
 
-" --- REPLACE MULTIPLE <tab>S WITH TRAILING <space> WITH <tab>S ONLY ---
+" --- REPLACE MULTIPLE <TAB>S WITH TRAILING <SPACE> WITH <TAB>S ONLY ---
 "
 vnoremap ,t :s/\(\t\+\) \+/\1/g<CR>
 
@@ -395,7 +395,7 @@ vnoremap ,cd di<code><CR></code><CR><ESC>kP?<code><CR>:s@.*\(<code>\)@\1@<CR>/</
 " added 20210629
 nnoremap ,c i<code><CR></code><CR><ESC>kki
 
-" --- SHIFT TAB AND REMOVE SPACES ---
+" --- SHIFT TAB AND REMOVE spaceS ---
 " added 20211105
 vnoremap ,rr >gv:s/\(\t\+\) \+/\1/g<CR>
 
@@ -404,26 +404,26 @@ vnoremap ,rr >gv:s/\(\t\+\) \+/\1/g<CR>
 " clone current line or selection and:
 "        - normal mode: paste it under current line
 "        - visual selection: paste it over current line, but select lower selection block
-noremap <leader>c yyp
-vnoremap <leader>c yPgv
+noremap <LEADER>c yyp
+vnoremap <LEADER>c yPgv
 
 
 " --- SYNTAX SETUP MAPPINGS ---
-noremap ,stb :so ~/.vimrc <bar> :set syntax=bash<CR>
-noremap ,stz :so ~/.vimrc <bar> :set syntax=zig<CR>
-noremap ,stp :so ~/.vimrc <bar> :set syntax=python<CR>
-noremap ,stc :so ~/.vimrc <bar> :set syntax=c<CR>
-noremap ,stj :so ~/.vimrc <bar> :set syntax=java<CR>
+noremap ,stb :so ~/.vimrc <BAR> :set syntax=bash<CR>
+noremap ,stz :so ~/.vimrc <BAR> :set syntax=zig<CR>
+noremap ,stp :so ~/.vimrc <BAR> :set syntax=python<CR>
+noremap ,stc :so ~/.vimrc <BAR> :set syntax=c<CR>
+noremap ,stj :so ~/.vimrc <BAR> :set syntax=java<CR>
 
 
 " --- NETRW WINDOW SETUP ---
 " 20210813: vim's file explorer (Netrw) in left column of size 30 (close with :bd)
-nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
+nnoremap <LEADER>pv :wincmd v<BAR> :Ex <BAR> :vertical resize 30<CR>
 
 
 " --- RANGER ---
 " ranger settings 20210813
-nnoremap <leader>r :Ranger<CR>
+nnoremap <LEADER>r :Ranger<CR>
 let g:ranger_map_keys = 0
 
 
@@ -431,8 +431,8 @@ let g:ranger_map_keys = 0
 " mapping to replace spaces and semicolon or just spaces
 " at the end of the line:
 " effect: single ; at the end of text remains
-nnoremap <leader>s :s/ *;*$/;/<esc>j
-nnoremap <leader>x vllc/* <ESC>A */<ESC>
+nnoremap <LEADER>s :s/ *;*$/;/<ESC>j
+nnoremap <LEADER>x vllc/* <ESC>A */<ESC>
 
 
 " --- BREAK LINE AT POSITION 110 CHARS ---
@@ -453,58 +453,59 @@ nnoremap ,b 0110lbi<BS><CR><ESC>
 
 " --- MULTIPLE LINES MOVE ---
 " move entire lines UP and DOWN
-" to enter instead of Alt key --> SPACE key
-nnoremap <Space>j :m.+1<CR>==
-nnoremap <Space>k :m.-2<CR>==
-vnoremap <Space>j :m'>+1<CR>gv=gv
-vnoremap <Space>k :m'<-2<CR>gv=gv
+" to enter instead of Alt key --> space key
+nnoremap <SPACE>j :m.+1<CR>==
+nnoremap <SPACE>k :m.-2<CR>==
+vnoremap <SPACE>j :m'>+1<CR>gv=gv
+vnoremap <SPACE>k :m'<-2<CR>gv=gv
 
 
 " --- CMD PROMT SYMBOL REPLACEMENT ---
 nnoremap ,4 :s/^\s*/$> /<CR> :nohl <CR><CR>
 vnoremap ,4 :s/^\s*/$> /<CR> :nohl <CR><CR>
-nnoremap <Space>4 :s/^\$ /$> /<CR> :nohl <CR><CR>
-vnoremap <Space>4 :s/^\$ /$> /<CR> :nohl <CR><CR>
+nnoremap <SPACE>4 :s/^\$ /$> /<CR> :nohl <CR><CR>
+vnoremap <SPACE>4 :s/^\$ /$> /<CR> :nohl <CR><CR>
 
 
 " --- NEERDTREE ---
-" nnoremap <leader>n :NERDTree<CR>
-nnoremap <leader>n :NERDTreeToggle<CR>
+" nnoremap <LEADER>n :NERDTree<CR>
+nnoremap <LEADER>n :NERDTreeToggle<CR>
+nnoremap <F5> :NERDTreeToggle<CR>
 
 
 " --- FZF ---
-nnoremap <leader>ff :FZF<CR>
-nnoremap <leader>fe :FZF -e<CR>
+nnoremap <LEADER>ff :FZF<CR>
+nnoremap <LEADER>fe :FZF -e<CR>
 
 
-" --- REPLACES TABS TO 4 SPACES ---
+" --- REPLACES TABS TO 4 spaceS ---
 " added 20220926
 " whole lines -> <shift+v>
 " block       -> <ctrl+v>
-vnoremap <C-t> :s/\%V\t/    /g<CR>
+vnoremap <C-T> :s/\%V\t/    /g<CR>
 
 
 " --- REMOVES LAGGING WHEN EDITING *.h FILES ---
 " added 20231006
-nnoremap <leader>st :syntax off<CR>:syntax on<CR>
+nnoremap <LEADER>st :syntax off<CR>:syntax on<CR>
 
 
 " --- INSERT <SPACE> BETWEEN // AND TEXT ---
 " 20220929
 " replace '//text ...' with '// text ...'
-noremap <Space>s :%s/\/\/\(\w.*\)/\/\/ \1/<CR>
+noremap <SPACE>s :%s/\/\/\(\w.*\)/\/\/ \1/<CR>
 
 
 " --- MAP ctrl+x ctrl+f to ctrl+f ---
-inoremap <C-f> <C-x><C-f>
+inoremap <C-F> <C-X><C-F>
 
 
 " --- COPY HTTP LINK INTO THE [NUMBER] HOLDER FOR THE LINK AFTER LYXD_ED DOCUMENT ---
 " 20250515
 " 1 - go inside '[' ']'
-" 2 - <c-o> to go to coresponding link at the bottom
+" 2 - <C-O> to go to coresponding link at the bottom
 " 3 - pres ,lc to do the magic ...
-noremap ,lc fhvg_y<C-o>ci[<C-r>0<ESC>
+noremap ,lc fhvg_y<C-O>ci[<C-R>0<ESC>
 
 
 " --- OPEN ALL BUFFERS INTO SEPARATE TABS ---
@@ -520,38 +521,38 @@ noremap ,tr 0yyjp}P<ESC>j
 
 " --- MOVE '{' AFTER 'FUNC() ' ---
 " 20251205
-noremap <space>f jddkA {<ESC>
+noremap <SPACE>f jddkA {<ESC>
 
 
 " --- SET SYNTAX MAPPINGS ---
 " 20251210
-noremap <space>ss :set syntax=<CR>
-noremap <space>ssc :set syntax=c<CR>
-noremap <space>sst :set syntax=text<CR>
-noremap <space>ssj :set syntax=java<CR>
-noremap <space>ssp :set syntax=python<CR>
-noremap <space>ssg :set syntax=go<CR>
-noremap <space>ssh :set syntax=sh<CR>
+noremap <SPACE>ss :set syntax=<CR>
+noremap <SPACE>ssc :set syntax=c<CR>
+noremap <SPACE>sst :set syntax=text<CR>
+noremap <SPACE>ssj :set syntax=java<CR>
+noremap <SPACE>ssp :set syntax=python<CR>
+noremap <SPACE>ssg :set syntax=go<CR>
+noremap <SPACE>ssh :set syntax=sh<CR>
 
 
 " --- INDENT/FORMAT main{} BLOCK ---
 " 20251223
 " select whole 'main() { ... }' block, formate it with '=' and
 " replace 5 spaces with tabs
-nnoremap <space>0 0Vf{%=gv:s/\(\t\+\) \+/\1/g<CR>
+nnoremap <SPACE>= 0Vf{%=gv:s/\(\t\+\) \+/\1/g<CR>
 
 
 " --- INITIAL CONFIG SOURCE AND SYNTAX SETUP ---
 " 20260114
-" nnoremap <space>v :so ~/.vimrc <BAR> set syntax=c<CR>
-nnoremap <space>v :so ~/.vimrc <BAR> set syntax=c <BAR> :noh<CR>
+" nnoremap <SPACE>v :so ~/.vimrc <BAR> set syntax=c<CR>
+nnoremap <SPACE>v :so ~/.vimrc <BAR> set syntax=c <BAR> :noh<CR>
 
 
 " --- MOVE LINE UNDER THE CURSOR INSIDE [] ---
 " 20260210
 " move line under the cursor inside []
 " move selected text into []
-nnoremap ,sb 0vg_xi[<c-r>"]<esc>j<cr>
+nnoremap ,sb 0vg_xi[<C-R>"]<ESC>j<CR>
 vnoremap ,sb xi[]<ESC>h""p<ESC>
 
 "
@@ -559,27 +560,30 @@ vnoremap ,sb xi[]<ESC>h""p<ESC>
 " 20260210
 " from: vim-working-with-buffers-multif-5ppp-20260210.txt
 " https://builtin.com/articles/working-with-buffers-in-vim
-nnoremap <Leader>b :buffers<CR>:buffer<Space>
+nnoremap <LEADER>b :buffers<CR>:buffer<SPACE>
 
 " --- SEARCH IN VIM'S FILE EDIT HISTROY AND OPEN IT FOR EDIT/VIEW ---
 " 20260211
 " must enter colon ':' and add a line number
-nnoremap <leader>oo :oldfiles<CR>e #<
+nnoremap <LEADER>oo :oldfiles<CR>e #<
 
+" --- PUT SEMICOLON AT THE END OF THE LINE ---
+nnoremap ;; A;<ESC><CR>
+vnoremap ;; :norm A;<ESC><CR>
 
-" --- REPLACE LEADING 4 SPACES TO TABS ---
+" --- REPLACE LEADING 4 spaceS TO TABS ---
 " 20260219 replace leading 4 spaces to tabs
-nnoremap <space>4t :%s/\(^\s*\)\@<=    /\t/g<CR><BAR>:noh<CR>
-vnoremap <space>4t :s/\(^\s*\)\@<=    /\t/g<CR><BAR>:noh<CR>
+nnoremap <SPACE>4t :%s/\(^\s*\)\@<=    /\t/g<CR><BAR>:noh<CR>
+vnoremap <SPACE>4t :s/\(^\s*\)\@<=    /\t/g<CR><BAR>:noh<CR>
 
-" --- REPLACE LEADING 2 SPACES TO TABS ---
+" --- REPLACE LEADING 2 spaceS TO TABS ---
 " 20260612 replace leading 2 spaces to tabs
-nnoremap <space>2t :%s/\(^\s*\)\@<=  /\t/g<CR><BAR>:noh<CR>
-vnoremap <space>2t :s/\(^\s*\)\@<=  /\t/g<CR><BAR>:noh<CR>
+nnoremap <SPACE>2t :%s/\(^\s*\)\@<=  /\t/g<CR><BAR>:noh<CR>
+vnoremap <SPACE>2t :s/\(^\s*\)\@<=  /\t/g<CR><BAR>:noh<CR>
 
 " --- REPLACE SINGLE QUOTE INSIDE WORDS WITH APOSTROPHE COMMAND ---
 " 20260311
-nnoremap <space>9 :%s/\([[:alpha:]]\)'\([[:alpha:]]\)/\1´\2/g<CR><BAR>:noh<CR>
+nnoremap <SPACE>9 :%s/\([[:alpha:]]\)'\([[:alpha:]]\)/\1´\2/g<CR><BAR>:noh<CR>
 
 
 " --- RETAB VISUAL SELLECTION ---
@@ -589,8 +593,8 @@ vnoremap ,rt :retab!<CR>
 
 " --- MOVE SELECTED TEXT BETWEEN '', OR BETWEEN "" ---
 " 20260317
-vnoremap <space>sq xi''<ESC>h""p<ESC>
-vnoremap <space>dq xi""<ESC>h""p<ESC>
+vnoremap <SPACE>sq xi''<ESC>h""p<ESC>
+vnoremap <SPACE>dq xi""<ESC>h""p<ESC>
 
 
 " 20240310
@@ -604,15 +608,15 @@ vnoremap ,ds :s/\[.\+\]//g<CR>:noh<CR>
 
 " 20260807
 " insert datestamp 'YYYYmmdd'
-nnoremap ,dt "=strftime('%Y%m%d')<cr>P<cr>
-inoremap ,dt <c-r>=strftime('%Y%m%d')<cr>
-vnoremap ,dt <c-r>=strftime('%Y%m%d')<cr>
+nnoremap ,dt "=strftime('%Y%m%d')<CR>P<CR>
+inoremap ,dt <C-R>=strftime('%Y%m%d')<CR>
+vnoremap ,dt <C-R>=strftime('%Y%m%d')<CR>
 
 " 20260812
 " write and close buffer
-noremap ,wd :w <bar> :bd<cr>
+noremap ,wd :w <BAR> :bd<CR>
 " or:
-" noremap ,wd :w \| :bd<cr>
+" noremap ,wd :w \| :bd<CR>
 "
 
 " 20260820
@@ -624,6 +628,6 @@ noremap ,nf :set nomodifiable<CR>
 
 " 20260831
 " put sellection inside double or single quotes
-vnoremap 1q c''<esc>hp
-vnoremap 2q c""<esc>hp
+vnoremap 1q c''<ESC>hp
+vnoremap 2q c""<ESC>hp
 
