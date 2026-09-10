@@ -28,7 +28,7 @@ set wildmode=list:longest,full
 set hidden
 set path+=**
 set textwidth=110                   " so gqq works on splitting long lines at 110-th position -- 20240826
-set viminfo='100,f1                 "20260210: remember local an d global marks for 100 files
+set viminfo='1000,f1                "20260910: remember local an d global marks for 1000 files
 set nrformats+=alpha                " added 20240212: to increase sequences of alpha chars
 set formatoptions-=t
 set formatoptions+=l
@@ -414,6 +414,7 @@ noremap ,stz :so ~/.vimrc <BAR> :set syntax=zig<CR>
 noremap ,stp :so ~/.vimrc <BAR> :set syntax=python<CR>
 noremap ,stc :so ~/.vimrc <BAR> :set syntax=c<CR>
 noremap ,stj :so ~/.vimrc <BAR> :set syntax=java<CR>
+noremap ,stv :so ~/.vimrc <BAR> :set syntax=vim<CR>
 
 
 " --- NETRW WINDOW SETUP ---
@@ -533,6 +534,7 @@ noremap <SPACE>ssj :set syntax=java<CR>
 noremap <SPACE>ssp :set syntax=python<CR>
 noremap <SPACE>ssg :set syntax=go<CR>
 noremap <SPACE>ssh :set syntax=sh<CR>
+noremap <SPACE>ssv :set syntax=vim<CR>
 
 
 " --- INDENT/FORMAT main{} BLOCK ---
