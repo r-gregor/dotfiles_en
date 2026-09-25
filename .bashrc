@@ -27,7 +27,8 @@ export HST="en"
 export PG_MJSTF="${HOME}/majstaf"
 export PG_MJBN="${PG_MJSTF}/majbin"
 export PG_GIT="${PG_MJSTF}/${HST}git"
-export FFCMD=/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/FireFox_63.0.1/FirefoxPortable.exe
+export FFCMD='/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/FireFox_63.0.1/FirefoxPortable.exe'
+export CLPBRDMNGR='/usr/bin/putclip'
 
 export GT_STATUS_REPORTS="${HOME}/.tmp/GT_STATUS_REPORTS"
 export GT_TPUSH_REPORTS="${HOME}/.tmp/GT_TPUSH_REPORTS"
