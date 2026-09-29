@@ -305,7 +305,8 @@ colorscheme catppuccin_mocha
 " ab sbng #! /usr/bin/env bash<CR><TAB>
 " ab sbng #! /usr/bin/env bash<CR># fname: <C-R>%<CR># [] v1<CR># ---<CR>
 " updated 20250807: insert datestamp
-ab sbng #! /usr/bin/env bash<CR># fname: <C-R>%<CR># <C-R>=strftime('%Y%m%d')<CR> v1<CR># ---<CR>
+" ab sbng #! /usr/bin/env bash<CR># fname: <C-R>%<CR># <C-R>=strftime('%Y%m%d')<CR> v1<CR># ---<CR>
+ab sbng #! /usr/bin/env bash<CR># fname: <C-R>%<CR># descpt: <CR># <C-R>=strftime('%Y%m%d')<CR> v1<CR># last: <CR># ---<CR><ESC>:so ~/.vimrc <BAR> :set syntax=bash
 ab pt3 #! /usr/bin/env python3<CR># -*- coding: utf-8 -*-<CR><CR><ESC>:so ~/.vimrc | :set syntax=python
 ab sout System.out.println(
 ab zst const std = @import("std");<CR><CR>pub fn main() !void {<CR>const out = std.io.getStdOut().writer();<CR>const in = std.io.getStdiIn().reader();<CR><CR>try out.print("I'm Alive!\n", .{});<CR><CR>}<CR><ESC>:so ~/.vimrc | :set syntax=zig
@@ -597,3 +598,6 @@ vnoremap 2q c""<ESC>hp
 " --- HIDE/DISPLAY TAB CHARACTER ---
 nnoremap <SPACE>0 :set listchars=tab:\ \ ,nbsp:·<CR>
 nnoremap <SPACE>t :set listchars=tab:┊⋅<CR>
+
+" --- PUT ${} INSIDE DOUBLE QUOTES ---
+noremap ,qq i"<ESC>f{%a"<ESC>
