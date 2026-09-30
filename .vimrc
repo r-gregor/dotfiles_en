@@ -601,3 +601,4 @@ nnoremap <SPACE>t :set listchars=tab:┊⋅<CR>
 
 " --- PUT ${} INSIDE DOUBLE QUOTES ---
 noremap ,qq i"<ESC>f{%a"<ESC>
+
