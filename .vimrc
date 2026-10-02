@@ -602,3 +602,17 @@ nnoremap <SPACE>t :set listchars=tab:┊⋅<CR>
 " --- PUT ${} INSIDE DOUBLE QUOTES ---
 noremap ,qq i"<ESC>f{%a"<ESC>
 
+" --- CONVERT ALL '$varname' to '${varname}' ---
+nnoremap ,bb :%s/\$\([[:alpha:]]\+\)/${\1}/g<CR>
+
+" --- CONVERT SINGLE '$varname' to '${varname}' ---
+nnoremap ,cb a{<ESC>ea}<ESC>
+
+" --- CHANGE 'echo ' into 'printf ' ---
+" pp: echo "..."      --> printf "[i] ... \n"
+" pf: echo "..."      --> printf " ... \n"
+" pe: echo -e "...\n" --> printf " ... \n"
+nnoremap <LEADER>pp ^ciwprintf<ESC>f"a[i] <ESC>f"i\n<ESC>j
+nnoremap <LEADER>pf ^ciwprintf<ESC>$i\n<ESC>j
+nnoremap <LEADER>pe ^vt"cprintf <ESC>j
+
