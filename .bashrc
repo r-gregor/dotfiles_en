@@ -67,6 +67,9 @@ source /home/gregor.redelonghi/majstaf/majrcs/termcap-no-comments.bash
 
 
 
+mount --change-cygdrive-prefix /
+
+
  #export LANG=sl_SI.utf8
 export LANG=en_US.utf8
 
@@ -110,4 +113,7 @@ export TESTING_TPUSH_REPORTS="/home/gregor.redelonghi/.tmp/TESTING_TPUSH_REPORTS
 
 # export FZF_CTRL_T_OPTS="--extended-exact"
 export FZF_CTRL_R_OPTS="--extended-exact"
+
+
+# [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
